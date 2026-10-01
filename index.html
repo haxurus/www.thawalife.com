@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="THAWALIFE - personal space, projects and links.">
+  <title>THAWALIFE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="THAWALIFE home">
+      <span class="brand-mark">T</span>
+      <span>THAWALIFE</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#links">Links</a>
+    </nav>
+
+    <span class="status"><i></i> online</span>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>01</span> DIGITAL IDENTITY</p>
+        <h1>
+          A small corner<br>
+          of the <em>internet.</em>
+        </h1>
+        <p class="hero-text">
+          Personal space, projects, experiments and everything that lives
+          somewhere between the real world and the digital one.
+        </p>
+
+        <div class="hero-actions" id="links">
+          <a class="button button-primary" href="#about">
+            Explore
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a class="button button-ghost" href="https://github.com/" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+        </div>
+
+        <div class="hero-footnote">
+          <span class="line"></span>
+          <span>Drag the badge. Flick it. Flip it.</span>
+        </div>
+      </div>
+
+      <div class="badge-stage" id="badge-stage" aria-label="Interactive lanyard badge">
+        <canvas id="lanyard-canvas" aria-hidden="true"></canvas>
+
+        <div class="badge-shell" id="badge-shell">
+          <div class="badge-card" id="badge-card" role="button" tabindex="0" aria-label="Flip badge">
+            <section class="badge-face badge-front">
+              <div class="badge-topline">
+                <span>THAWALIFE</span>
+                <span class="badge-id">ID/001</span>
+              </div>
+
+              <div class="badge-photo" aria-hidden="true">
+                <div class="avatar-orbit"></div>
+                <span>TW</span>
+              </div>
+
+              <div class="badge-person">
+                <span class="badge-kicker">DIGITAL RESIDENT</span>
+                <strong>THAWALIFE</strong>
+                <span class="badge-handle">@thawalife</span>
+              </div>
+
+              <div class="badge-footer">
+                <span class="barcode" aria-hidden="true"></span>
+                <span>WWW.THAWALIFE.COM</span>
+              </div>
+            </section>
+
+            <section class="badge-face badge-back">
+              <div>
+                <span class="badge-kicker">ACCESS PASS</span>
+                <h2>Welcome to<br>my world.</h2>
+              </div>
+
+              <div class="back-grid">
+                <span>WEB</span>
+                <span>CREATIVE</span>
+                <span>VR</span>
+                <span>GAMES</span>
+              </div>
+
+              <div class="badge-back-bottom">
+                <span>FLIP / DRAG / EXPLORE</span>
+                <span class="mini-mark">T</span>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="interaction-pill" aria-hidden="true">
+          <span class="mouse-icon"></span>
+          DRAG
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <p class="section-index">02 / ABOUT</p>
+      <p>
+        This is the first visual prototype for THAWALIFE. The badge is built
+        without external animation libraries: pointer interaction, spring motion,
+        inertia and the lanyard are all handled directly in the page.
+      </p>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
