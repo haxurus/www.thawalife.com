@@ -134,7 +134,7 @@
     ctx.stroke();
 
     ctx.lineWidth = 2;
-    ctx.strokeStyle = 'rgba(13,158,90,.18)';
+    ctx.strokeStyle = 'rgba(53,185,120,.22)';
 
     ctx.beginPath();
     ctx.moveTo(anchorLeft + 1, anchorY);
