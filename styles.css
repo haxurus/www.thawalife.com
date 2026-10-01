@@ -28,7 +28,7 @@ body::before {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  filter: grayscale(1) contrast(1.06) brightness(.58);
+  filter: grayscale(1) contrast(1.06) brightness(.29);
   transform: scale(1.02);
 }
 body::after {
