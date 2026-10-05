@@ -17,6 +17,8 @@
   let lastT = performance.now();
   let moved = false;
   let pointerId = null;
+  let downTarget = null;
+  let travel = 0;
 
   function resize() {
     const rect = stage.getBoundingClientRect();
@@ -37,6 +39,9 @@
     if (!e.isPrimary) return;
     dragging = true;
     moved = false;
+    travel = 0;
+    downTarget = e.target;
+    document.documentElement.classList.add('is-dragging');
     pointerId = e.pointerId;
     stage.setPointerCapture(pointerId);
     lastX = e.clientX;
@@ -52,7 +57,8 @@
     const dx = e.clientX - lastX;
     const dy = e.clientY - lastY;
 
-    if (Math.abs(dx) + Math.abs(dy) > 2) moved = true;
+    travel += Math.abs(dx) + Math.abs(dy);
+    if (travel > 8) moved = true;
 
     targetX += dx;
     targetY += dy;
@@ -73,10 +79,21 @@
   function pointerUp(e) {
     if (e.pointerId !== pointerId) return;
     dragging = false;
+    document.documentElement.classList.remove('is-dragging');
     try { stage.releasePointerCapture(pointerId); } catch {}
     pointerId = null;
 
-    if (!moved && e.target.closest('#badge-card')) {
+    /* With pointer capture the pointerup target is the stage, so the
+       element that was actually pressed is remembered on pointerdown. */
+    const target = downTarget;
+    downTarget = null;
+    if (e.type !== 'pointerup' || moved || !target || !target.closest('#badge-card')) return;
+
+    const link = target.closest('a[href]');
+    if (link) {
+      if (/^https?:/i.test(link.href)) window.open(link.href, '_blank', 'noopener');
+      else window.location.href = link.href;
+    } else {
       card.classList.toggle('flipped');
     }
   }
@@ -94,6 +111,8 @@
   });
 
   stage.addEventListener('dblclick', center);
+  stage.addEventListener('selectstart', (e) => e.preventDefault());
+  stage.addEventListener('dragstart', (e) => e.preventDefault());
   window.addEventListener('resize', resize);
 
   function drawLanyard(rect) {

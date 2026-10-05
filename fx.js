@@ -64,6 +64,9 @@
     return `<li><a href="${s.url}"${ext} data-cursor="OPEN">${s.name}<span aria-hidden="true">↗</span></a></li>`;
   }).join('');
 
+  $('#badge-links').innerHTML = W.SOCIALS.map((s) =>
+    `<li><a href="${s.url}"><span>${s.name}</span><b>${s.handle}</b></a></li>`).join('');
+
   /* ----------------------------------------------------------
      TEXT SPLITTING (headings, about lead, contact letters)
      ---------------------------------------------------------- */

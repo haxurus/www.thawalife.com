@@ -768,3 +768,62 @@ html.lenis, html.lenis body { height: auto; }
 .socials a span { color: var(--accent-light); transition: transform .4s var(--ease), color .25s; }
 .socials a:hover { background: var(--accent-light); color: #06100b; border-color: var(--accent-light); }
 .socials a:hover span { color: #06100b; transform: translate(3px, -3px); }
+
+
+/* ============================================================
+   BADGE: no text selection, richer back face
+   ============================================================ */
+.badge-stage,
+.badge-stage * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.badge-stage img { -webkit-user-drag: none; pointer-events: none; }
+html.is-dragging, html.is-dragging * { -webkit-user-select: none !important; user-select: none !important; }
+
+.badge-back { gap: 10px; }
+.badge-back h2 { font-size: 30px; margin-top: 10px; }
+.back-bio {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #b7b7b2;
+}
+.back-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.back-links li { border-bottom: 1px solid rgba(255,255,255,.12); }
+.back-links a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 2px;
+  font: 500 9px/1 "DM Mono", monospace;
+  letter-spacing: .06em;
+  color: #8f8f89;
+  text-transform: uppercase;
+  transition: color .2s, padding .3s var(--ease);
+}
+.back-links a b { font-weight: 500; color: var(--text); text-transform: none; letter-spacing: .02em; font-size: 10px; }
+.back-links a:hover { color: var(--accent-bright); padding-left: 8px; }
+.back-links a:hover b { color: var(--accent-bright); }
+.back-with {
+  margin: 0;
+  font: 500 8.5px/1.6 "DM Mono", monospace;
+  letter-spacing: .06em;
+  color: #6e6e69;
+}
+.back-with span { display: block; color: var(--accent-light); letter-spacing: .1em; }
+.badge-back-bottom { color: #6e6e69; font-size: 8px; }
+
+@media (max-width: 620px) {
+  .badge-back { gap: 7px; padding: 18px; }
+  .badge-back h2 { font-size: 24px; }
+  .back-bio { font-size: 11px; }
+  .back-links a { padding: 7px 2px; }
+}

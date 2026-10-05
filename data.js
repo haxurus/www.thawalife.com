@@ -112,10 +112,10 @@ window.WALIFE = {
   ],
 
   SOCIALS: [
-    { name: 'Discord', url: 'https://discord.com/users/139710182526550016' },
-    { name: 'Email', url: 'mailto:thawalife@gmail.com' },
-    { name: 'TikTok', url: 'https://www.tiktok.com/@thawalife' },
-    { name: 'Bluesky', url: 'https://bsky.app/profile/thawalife.com' }
+    { name: 'Discord', handle: 'thawalife', url: 'https://discord.com/users/139710182526550016' },
+    { name: 'Email', handle: 'thawalife@gmail.com', url: 'mailto:thawalife@gmail.com' },
+    { name: 'TikTok', handle: '@thawalife', url: 'https://www.tiktok.com/@thawalife' },
+    { name: 'Bluesky', handle: '@thawalife.com', url: 'https://bsky.app/profile/thawalife.com' }
   ],
 
   DICT: {
@@ -134,8 +134,10 @@ window.WALIFE = {
       heroNote: 'Trascina il badge. Clicca per girarlo.',
       scroll: 'SCORRI',
       badgeTop: 'WALIFE / PORTFOLIO', badgeKicker: 'PORTFOLIO 2026', badgeRole: 'GRAPHIC DESIGNER',
-      badgeBackKicker: 'AMBITI', badgeBackTitle: 'Design con<br>carattere.',
-      badgeG1: 'IDENTITÀ', badgeG2: 'EVENTI', badgeG3: 'MERCH', badgeG4: 'MONDI VR',
+      badgeBackKicker: 'INFO & CONTATTI', badgeBackTitle: 'Design con<br>carattere.',
+      badgeBio: 'Identità, poster, merch e mondi virtuali per community, club e streamer.',
+      badgeWith: 'HO LAVORATO PER',
+      badgeFlipHint: 'CLICCA PER TORNARE',
       badgeBottom: 'PS · AI · BLENDER · UNITY',
       pill: 'TRASCINA / GIRA',
       cfIdx: '02 / IN PRIMO PIANO',
@@ -179,8 +181,10 @@ window.WALIFE = {
       heroNote: 'Drag the badge. Click to flip.',
       scroll: 'SCROLL',
       badgeTop: 'WALIFE / PORTFOLIO', badgeKicker: 'PORTFOLIO 2026', badgeRole: 'GRAPHIC DESIGNER',
-      badgeBackKicker: 'DISCIPLINES', badgeBackTitle: 'Design with<br>character.',
-      badgeG1: 'IDENTITY', badgeG2: 'EVENTS', badgeG3: 'MERCH', badgeG4: 'VR WORLDS',
+      badgeBackKicker: 'INFO & CONTACTS', badgeBackTitle: 'Design with<br>character.',
+      badgeBio: 'Identities, posters, merch and virtual worlds for communities, clubs and streamers.',
+      badgeWith: 'WORKED FOR',
+      badgeFlipHint: 'CLICK TO FLIP BACK',
       badgeBottom: 'PS · AI · BLENDER · UNITY',
       pill: 'DRAG / FLIP',
       cfIdx: '02 / IN THE SPOTLIGHT',
