@@ -45,7 +45,6 @@
   /* ----------------------------------------------------------
      RENDER: carousel, archive tiles, socials
      ---------------------------------------------------------- */
-  $('#stat-projects').dataset.count = PROJECTS.length;
 
   const cfItemsEl = $('#cf-items');
   cfItemsEl.innerHTML = PROJECTS.map((p, i) =>
@@ -103,22 +102,6 @@
     });
   }
 
-  const lead = $('#about-lead');
-  let leadWords = [];
-  let leadOn = -1;
-  function splitLead() {
-    lead.setAttribute('aria-label', lead.textContent.trim().replace(/\s+/g, ' '));
-    wrapWords(lead, (word) => {
-      const s = document.createElement('span');
-      s.className = 'sw';
-      s.setAttribute('aria-hidden', 'true');
-      s.textContent = word;
-      return s;
-    });
-    leadWords = $$('.sw', lead);
-    leadOn = -1;
-  }
-
   const contactText = $('#contact-text');
   const cLetters = [];
   function splitContact() {
@@ -164,7 +147,6 @@
     $$('.cf-item').forEach((a) => a.setAttribute('aria-label', L(bySlug(a.dataset.slug).title)));
 
     $$('.split').forEach(splitHeading);
-    splitLead();
     splitContact();
 
     $$('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
@@ -204,28 +186,6 @@
     }, { threshold: .15, rootMargin: '0px 0px -6% 0px' });
     $$('[data-reveal], .split').forEach((el) => io.observe(el));
 
-    const statsIO = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        statsIO.unobserve(e.target);
-        $$('b[data-count]', e.target).forEach(countUp);
-      });
-    }, { threshold: .4 });
-    const stats = $('.stats');
-    if (stats) statsIO.observe(stats);
-  }
-
-  function countUp(el) {
-    const end = +el.dataset.count;
-    const dur = reduce ? 0 : 1900;
-    const t0 = performance.now();
-    const step = (t) => {
-      const p = dur ? clamp((t - t0) / dur, 0, 1) : 1;
-      const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
-      el.textContent = Math.round(end * eased);
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
   }
 
   if (reduce) {
@@ -813,15 +773,6 @@ void main(){
 
     updateCf(now);
     updateArchive();
-
-    // about text fill
-    const lr = lead.getBoundingClientRect();
-    const lp = clamp((innerHeight * .88 - lr.top) / (innerHeight * .5), 0, 1);
-    const on = Math.round(lp * leadWords.length);
-    if (on !== leadOn) {
-      leadWords.forEach((w, i) => w.classList.toggle('on', i < on));
-      leadOn = on;
-    }
 
     // cursor + preview
     if (fine) {

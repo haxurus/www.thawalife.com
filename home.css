@@ -483,33 +483,6 @@ body.loading { overflow: hidden; }
 .orb:hover .orb-arrow { transform: rotate(45deg); color: #06100b; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ---------- About upgrades ---------- */
-.about { padding-bottom: 0; }
-.about-lead .sw { opacity: .16; transition: opacity .25s; }
-.about-lead .sw.on { opacity: 1; }
-.stats {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--line);
-  margin: 40px -56px 0;
-}
-.stats > div {
-  padding: 40px 56px 44px;
-  border-right: 1px solid var(--line);
-  display: flex; flex-direction: column; gap: 14px;
-}
-.stats > div:last-child { border-right: 0; }
-.stats b {
-  font-size: clamp(44px, 5.4vw, 92px);
-  font-weight: 600;
-  letter-spacing: -.06em;
-  line-height: 1;
-  color: var(--text);
-}
-.stats b::after { content: attr(data-suffix); color: var(--accent-light); }
-.stats span { color: var(--muted); font: 500 10px/1.4 "DM Mono", monospace; text-transform: uppercase; letter-spacing: .1em; }
-
 /* ---------- Services upgrades ---------- */
 .service-list { position: relative; }
 .service-row {
@@ -584,9 +557,6 @@ body.loading { overflow: hidden; }
   .hero-copy { min-height: 640px; }
   .marquee-band, .coverflow, .archive { width: calc(100% - 24px); }
   .cf-head { padding: 0 24px; }
-  .stats { grid-template-columns: 1fr 1fr; margin-inline: -24px; }
-  .stats > div { padding: 30px 24px; border-bottom: 1px solid var(--line); }
-  .stats > div:nth-child(2) { border-right: 0; }
   .service-row { grid-template-columns: 50px 1fr 30px; }
   .service-row p { grid-column: 2; }
   .svc-preview { display: none; }
@@ -599,7 +569,6 @@ body.loading { overflow: hidden; }
   .cf-head h2 { font-size: 40px; }
   .cf-btn { width: 48px; height: 48px; }
   .orb { width: 168px; height: 168px; }
-  .stats b { font-size: 44px; }
   .contact-footer { flex-wrap: wrap; gap: 12px; }
 }
 
@@ -779,7 +748,8 @@ html.lenis, html.lenis body { height: auto; }
   user-select: none;
   -webkit-touch-callout: none;
 }
-.badge-stage img { -webkit-user-drag: none; pointer-events: none; }
+.badge-stage img, .badge-stage a { -webkit-user-drag: none; }
+.badge-stage img { pointer-events: none; }
 html.is-dragging, html.is-dragging * { -webkit-user-select: none !important; user-select: none !important; }
 
 .badge-back { gap: 10px; }

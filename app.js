@@ -37,6 +37,7 @@
 
   function pointerDown(e) {
     if (!e.isPrimary) return;
+    e.preventDefault(); /* no text selection / native drag, even when pressing on text */
     dragging = true;
     moved = false;
     travel = 0;
@@ -111,6 +112,7 @@
   });
 
   stage.addEventListener('dblclick', center);
+  stage.addEventListener('mousedown', (e) => e.preventDefault());
   stage.addEventListener('selectstart', (e) => e.preventDefault());
   stage.addEventListener('dragstart', (e) => e.preventDefault());
   window.addEventListener('resize', resize);
