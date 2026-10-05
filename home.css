@@ -833,3 +833,108 @@ body.loading { overflow: hidden; }
   .loader { display: none; }
   .js [data-reveal], .js .ln > span, .w > span { transform: none; opacity: 1; }
 }
+
+
+/* ============================================================
+   LEVEL UP: shader bg, smooth scroll, trail, tilt, glow
+   ============================================================ */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+.gl-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 1;
+}
+.hero { background: rgba(8,8,8,.16); backdrop-filter: none; }
+.badge-stage { background-color: rgba(8,8,8,.16); backdrop-filter: blur(1px); }
+
+/* hero mouse trail */
+.trail {
+  position: absolute;
+  z-index: 4;
+  width: 118px; height: 150px;
+  pointer-events: none;
+  border: 1px solid rgba(255,255,255,.22);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,.5);
+  will-change: transform, opacity;
+}
+.hero-copy { will-change: transform, opacity; }
+
+/* click burst */
+.burst {
+  position: fixed;
+  z-index: 340;
+  width: 7px; height: 7px;
+  margin: -3.5px;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  pointer-events: none;
+}
+
+/* tilt + glare */
+.sc-media { z-index: 1; transform-style: preserve-3d; transition: transform .25s ease-out; will-change: transform; }
+.glare {
+  position: absolute; inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .4s;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255,255,255,.34), transparent 46%);
+  mix-blend-mode: soft-light;
+}
+.is-tilting > .glare, .cf-item.is-active.is-tilting .glare { opacity: 1; }
+.cf-item .art { transition: transform .3s ease-out; scale: 1.1; }
+.cf-item .glare { z-index: 3; }
+
+/* curtain reveal on showcase cards */
+.js .sc-media { transition: clip-path 1.3s var(--ease), transform .25s ease-out; }
+.js .sc-card:not(.in) .sc-media { clip-path: inset(100% 0 0 0); }
+.js .sc-card .sc-media { clip-path: inset(0 0 0 0); }
+.js .sc-card:not(.in) .sc-art { scale: 1.35; }
+.js .sc-card .sc-meta { transition: opacity .9s var(--ease) .35s, transform .9s var(--ease) .35s; }
+.js .sc-card:not(.in) .sc-meta { opacity: 0; transform: translateY(24px); }
+.sc-bignum {
+  position: absolute;
+  right: -2vw; top: -9vh;
+  z-index: 0;
+  font-size: clamp(120px, 20vw, 320px);
+  font-weight: 700;
+  letter-spacing: -.09em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,.12);
+  pointer-events: none;
+}
+
+/* carousel ambient glow */
+.cf-glow { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.cf-glow .art { inset: -20%; filter: blur(90px) saturate(1.6); opacity: .2; }
+.cf-head, .cf-stage, .cf-info { position: relative; z-index: 1; }
+
+/* spotlight borders */
+.spot { position: relative; }
+.spot::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .4s;
+  background: radial-gradient(380px circle at var(--sx, 50%) var(--sy, 50%), rgba(53,185,120,.16), transparent 62%);
+}
+.spot:hover::after { opacity: 1; }
+
+/* contact letters */
+.cl { display: inline-block; transition: transform .25s var(--ease), color .25s; will-change: transform; }
+.contact-footer b { font-weight: 500; color: var(--muted); }
+
+/* custom text selection */
+::selection { background: var(--accent); color: #06100b; }
+
+@media (max-width: 980px) { .sc-bignum { display: none; } }
