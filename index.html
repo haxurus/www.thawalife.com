@@ -1,14 +1,16 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080808">
-  <meta name="description" content="THAWALIFE - Graphic designer portfolio focused on visual identities, digital design and art direction.">
-  <meta property="og:title" content="THAWALIFE - Graphic Designer">
-  <meta property="og:description" content="Visual identities, digital design and art direction. Ideas shaped into visuals.">
-  <meta property="og:image" content="./img/banner_render_favicon.png">
-  <title>THAWALIFE - Graphic Designer</title>
+  <meta name="description" content="Portfolio di Walife, graphic designer: identità visive, poster per eventi, merch e mondi virtuali.">
+  <meta property="og:title" content="Walife – Graphic Designer">
+  <meta property="og:description" content="Portfolio di Walife, graphic designer: identità visive, poster per eventi, merch e mondi virtuali.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.thawalife.com/">
+  <meta property="og:image" content="https://www.thawalife.com/img/projects/club-italia-flyers.webp">
+  <title>Walife – Graphic Designer</title>
   <link rel="icon" type="image/png" href="./img/favicon.png">
   <link rel="apple-touch-icon" href="./img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +23,7 @@
 <body>
   <!-- Intro loader -->
   <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader-word"><span>T</span><span>H</span><span>A</span><span>W</span><span>A</span><span>L</span><span>I</span><span>F</span><span>E</span></div>
+    <div class="loader-word"><span>W</span><span>A</span><span>L</span><span>I</span><span>F</span><span>E</span></div>
     <div class="loader-bar"><i id="loader-bar"></i></div>
     <div class="loader-count"><span id="loader-count">000</span><small>/ 100</small></div>
   </div>
@@ -32,30 +34,34 @@
   <div class="noise" aria-hidden="true"></div>
 
   <header class="site-header" id="site-header">
-    <a class="brand" href="#home" aria-label="THAWALIFE home">
+    <a class="brand" href="#home" aria-label="Walife home">
       <span class="brand-mark brand-logo"><img src="./img/favicon.png" alt=""></span>
-      <span>THAWALIFE</span>
+      <span>WALIFE</span>
     </a>
 
     <nav class="site-nav" aria-label="Primary navigation">
-      <a href="#work" data-nav>Work</a>
-      <a href="#archive" data-nav>Archive</a>
-      <a href="#about" data-nav>About</a>
-      <a href="#services" data-nav>Services</a>
-      <a href="#contact" data-nav>Contact</a>
+      <a href="#work" data-nav data-i18n="navWork">Lavori</a>
+      <a href="#archive" data-nav data-i18n="navArchive">Archivio</a>
+      <a href="#about" data-nav data-i18n="navAbout">Chi sono</a>
+      <a href="#services" data-nav data-i18n="navServices">Servizi</a>
+      <a href="#contact" data-nav data-i18n="navContact">Contatti</a>
     </nav>
 
-    <span class="status"><i></i> available for work</span>
+    <div class="lang" role="group" aria-label="Language / Lingua">
+      <button type="button" data-lang="it" aria-pressed="true">IT</button>
+      <i aria-hidden="true"></i>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
   </header>
 
   <div class="menu" id="menu" aria-hidden="true">
-    <a href="#work">Work</a>
-    <a href="#archive">Archive</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-    <a class="menu-all" href="projects.html">All projects ↗</a>
+    <a href="#work" data-i18n="navWork">Lavori</a>
+    <a href="#archive" data-i18n="navArchive">Archivio</a>
+    <a href="#about" data-i18n="navAbout">Chi sono</a>
+    <a href="#services" data-i18n="navServices">Servizi</a>
+    <a href="#contact" data-i18n="navContact">Contatti</a>
+    <a class="menu-all" href="projects.html" data-i18n="menuAll">Tutti i progetti ↗</a>
   </div>
 
   <main>
@@ -63,29 +69,26 @@
     <section class="hero" id="home">
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-copy">
-        <p class="eyebrow" data-reveal><span>01</span> GRAPHIC DESIGNER / VISUAL CREATIVE</p>
-        <h1 aria-label="Ideas shaped into visuals.">
-          <span class="ln"><span>Ideas shaped</span></span>
-          <span class="ln"><span>into <em class="rotator" id="rotator" aria-hidden="true">visuals.</em></span></span>
+        <p class="eyebrow" data-reveal><span>01</span> <span class="eyebrow-text" data-i18n="eyebrow">GRAPHIC DESIGNER / CREATIVO VISIVO</span></p>
+        <h1 id="h1" aria-label="Idee trasformate in immagini.">
+          <span class="ln"><span data-i18n="h1a">Idee trasformate</span></span>
+          <span class="ln"><span><span data-i18n="h1b">in</span> <em class="rotator" id="rotator" aria-hidden="true">immagini.</em></span></span>
         </h1>
-        <p class="hero-text" data-reveal style="--d:.5s">
-          I create visual identities, digital graphics and design systems
-          built to be recognizable, coherent and memorable.
-        </p>
+        <p class="hero-text" data-reveal style="--d:.5s" data-i18n="heroText"></p>
 
         <div class="hero-actions" data-reveal style="--d:.65s">
           <a class="button button-primary magnetic" href="#showcase">
-            View selected work
+            <span data-i18n="ctaWork">Guarda i lavori</span>
             <span aria-hidden="true">↘</span>
           </a>
           <a class="button button-ghost magnetic" href="#contact">
-            Start a project
+            <span data-i18n="ctaProject">Inizia un progetto</span>
           </a>
         </div>
 
         <div class="hero-footnote" data-reveal style="--d:.8s">
           <span class="line"></span>
-          <span>Drag the badge. Click to flip.</span>
+          <span data-i18n="heroNote"></span>
         </div>
       </div>
 
@@ -96,20 +99,20 @@
           <div class="badge-card" id="badge-card" role="button" tabindex="0" aria-label="Flip designer badge">
             <section class="badge-face badge-front">
               <div class="badge-topline">
-                <span>THAWALIFE / STUDIO</span>
+                <span data-i18n="badgeTop">WALIFE / PORTFOLIO</span>
                 <span class="badge-id">CREATIVE/001</span>
               </div>
 
               <div class="badge-photo designer-mark" aria-hidden="true">
                 <div class="mark-grid"></div>
-                <span>TW</span>
+                <img src="./img/logo.webp" alt="" width="120" height="120">
                 <small>VISUAL DESIGN</small>
               </div>
 
               <div class="badge-person">
-                <span class="badge-kicker">INDEPENDENT CREATIVE</span>
-                <strong>THAWALIFE</strong>
-                <span class="badge-handle">GRAPHIC DESIGNER</span>
+                <span class="badge-kicker" data-i18n="badgeKicker">PORTFOLIO 2026</span>
+                <strong>WALIFE</strong>
+                <span class="badge-handle" data-i18n="badgeRole">GRAPHIC DESIGNER</span>
               </div>
 
               <div class="badge-footer">
@@ -120,20 +123,20 @@
 
             <section class="badge-face badge-back">
               <div>
-                <span class="badge-kicker">CREATIVE PRACTICE</span>
-                <h2>Design with<br>character.</h2>
+                <span class="badge-kicker" data-i18n="badgeBackKicker">AMBITI</span>
+                <h2 data-i18n="badgeBackTitle">Design con<br>carattere.</h2>
               </div>
 
               <div class="back-grid">
-                <span>BRANDING</span>
-                <span>IDENTITY</span>
-                <span>DIGITAL</span>
-                <span>ART DIRECTION</span>
+                <span data-i18n="badgeG1">IDENTITÀ</span>
+                <span data-i18n="badgeG2">EVENTI</span>
+                <span data-i18n="badgeG3">MERCH</span>
+                <span data-i18n="badgeG4">MONDI VR</span>
               </div>
 
               <div class="badge-back-bottom">
-                <span>AVAILABLE FOR SELECTED PROJECTS</span>
-                <span class="mini-mark">T</span>
+                <span data-i18n="badgeBottom">PS · AI · BLENDER · UNITY</span>
+                <span class="mini-mark">W</span>
               </div>
             </section>
           </div>
@@ -141,23 +144,23 @@
 
         <div class="interaction-pill" aria-hidden="true">
           <span class="mouse-icon"></span>
-          DRAG / FLIP
+          <span data-i18n="pill">TRASCINA / GIRA</span>
         </div>
       </div>
 
-      <a class="scroll-cue" href="#work" aria-label="Scroll to work"><span></span>SCROLL</a>
+      <a class="scroll-cue" href="#work" aria-label="Scroll"><span></span><b data-i18n="scroll">SCORRI</b></a>
     </section>
 
     <!-- MARQUEE -->
     <section class="marquee-band" aria-hidden="true">
       <div class="marquee" data-speed="1.1">
         <div class="marquee-track">
-          <span>Brand Identity</span><i>✦</i><span>Art Direction</span><i>✦</i><span>Poster Design</span><i>✦</i><span>Digital Campaigns</span><i>✦</i><span>3D &amp; Environment</span><i>✦</i>
+          <span>Brand Identity</span><i>✦</i><span>Event Posters</span><i>✦</i><span>Merch</span><i>✦</i><span>VR Integrated Works</span><i>✦</i><span>Streaming Assets</span><i>✦</i>
         </div>
       </div>
       <div class="marquee marquee-outline" data-speed="-1.1">
         <div class="marquee-track">
-          <span>Typography</span><i>✦</i><span>Visual Systems</span><i>✦</i><span>Packaging</span><i>✦</i><span>Editorial</span><i>✦</i><span>Motion</span><i>✦</i>
+          <span>Virtual Worlds</span><i>✦</i><span>Experiments</span><i>✦</i><span>Typography</span><i>✦</i><span>Photoshop</span><i>✦</i><span>Blender</span><i>✦</i><span>Unity</span><i>✦</i>
         </div>
       </div>
     </section>
@@ -166,14 +169,10 @@
     <section class="work-section" id="work">
       <div class="section-heading">
         <div>
-          <p class="section-index" data-reveal>02 / SELECTED WORK</p>
-          <h2 class="split">Work that refuses to blend in.</h2>
+          <p class="section-index" data-reveal data-i18n="workIdx"></p>
+          <h2 class="split" data-i18n="workTitle"></h2>
         </div>
-        <p class="section-copy" data-reveal style="--d:.2s">
-          A handful of recent projects across identity, communication and
-          digital design. Keep scrolling: the gallery moves with you.
-          The complete archive lives on its own page.
-        </p>
+        <p class="section-copy" data-reveal style="--d:.2s" data-i18n="workCopy"></p>
       </div>
     </section>
 
@@ -184,7 +183,7 @@
         <div class="showcase-hud">
           <span class="hud-count"><b id="hud-current">01</b> / <span id="hud-total">05</span></span>
           <span class="hud-bar"><i id="hud-bar"></i></span>
-          <span class="hud-hint">SCROLL →</span>
+          <span class="hud-hint" data-i18n="hudHint">SCORRI →</span>
         </div>
       </div>
     </section>
@@ -194,12 +193,12 @@
       <div class="cf-glow" id="cf-glow" aria-hidden="true"></div>
       <div class="cf-head">
         <div>
-          <p class="section-index" data-reveal>03 / IN THE SPOTLIGHT</p>
-          <h2 class="split">Drag. Spin. Explore.</h2>
+          <p class="section-index" data-reveal data-i18n="cfIdx"></p>
+          <h2 class="split" data-i18n="cfTitle"></h2>
         </div>
         <div class="cf-arrows">
-          <button class="cf-btn magnetic" id="cf-prev" aria-label="Previous project">←</button>
-          <button class="cf-btn magnetic" id="cf-next" aria-label="Next project">→</button>
+          <button class="cf-btn magnetic" id="cf-prev" data-i18n-aria="cfPrev" aria-label="Previous project">←</button>
+          <button class="cf-btn magnetic" id="cf-next" data-i18n-aria="cfNext" aria-label="Next project">→</button>
         </div>
       </div>
 
@@ -210,9 +209,10 @@
 
       <div class="cf-info" id="cf-info" aria-live="polite">
         <span class="cf-num" id="cf-num">01</span>
-        <h3 id="cf-title">Form</h3>
-        <p id="cf-tags">Brand identity / Logo system</p>
-        <a class="cf-link" id="cf-link" href="projects.html" data-cursor="OPEN">Open project <span>↗</span></a>
+        <h3 id="cf-title"></h3>
+        <p id="cf-tags"></p>
+        <p class="cf-desc" id="cf-desc"></p>
+        <a class="cf-link" id="cf-link" href="projects.html" data-cursor="OPEN"><span data-i18n="cfOpen">Apri progetto</span> <span>↗</span></a>
       </div>
     </section>
 
@@ -221,16 +221,13 @@
       <div class="ar-cols" id="ar-cols" aria-hidden="true"></div>
       <div class="ar-shade" aria-hidden="true"></div>
       <div class="ar-cta">
-        <p class="section-index" data-reveal>04 / THE ARCHIVE</p>
-        <h2 class="split">This is only <em>the surface.</em></h2>
-        <p class="ar-copy" data-reveal style="--d:.2s">
-          What you've seen is a short selection. Every identity, poster, campaign
-          and 3D piece lives in the full archive, filterable and complete.
-        </p>
-        <a class="orb magnetic" href="projects.html" data-cursor="GO" aria-label="See all projects">
+        <p class="section-index" data-reveal data-i18n="arIdx"></p>
+        <h2 class="split" data-i18n="arTitle"></h2>
+        <p class="ar-copy" data-reveal style="--d:.2s" data-i18n="arCopy"></p>
+        <a class="orb magnetic" href="projects.html" data-cursor="GO" data-i18n-aria="arAria" aria-label="See all projects">
           <svg viewBox="0 0 200 200" aria-hidden="true">
             <defs><path id="orb-path" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
-            <text><textPath href="#orb-path">SEE ALL PROJECTS ✦ SEE ALL PROJECTS ✦ SEE ALL PROJECTS ✦ </textPath></text>
+            <text><textPath href="#orb-path" id="orb-text">TUTTI I PROGETTI ✦ TUTTI I PROGETTI ✦ TUTTI I PROGETTI ✦ </textPath></text>
           </svg>
           <span class="orb-arrow">↗</span>
         </a>
@@ -239,24 +236,16 @@
 
     <!-- ABOUT -->
     <section class="about" id="about">
-      <p class="section-index" data-reveal>05 / ABOUT</p>
+      <p class="section-index" data-reveal data-i18n="aboutIdx"></p>
       <div class="about-content">
-        <p class="about-lead" id="about-lead">
-          Graphic design is not decoration. It is the way an idea becomes
-          clear, recognizable and worth remembering.
-        </p>
-        <p class="about-body" data-reveal>
-          THAWALIFE is a graphic design portfolio focused on visual identity,
-          digital communication and strong art direction. The approach combines
-          typography, composition, color and systems that stay consistent across
-          different formats.
-        </p>
+        <p class="about-lead" id="about-lead" data-i18n="aboutLead"></p>
+        <p class="about-body" data-reveal data-i18n="aboutBody"></p>
       </div>
-      <div class="stats spot-group" data-reveal>
-        <div class="spot"><b data-count="120" data-suffix="+">0</b><span>Projects delivered</span></div>
-        <div class="spot"><b data-count="8">0</b><span>Years of practice</span></div>
-        <div class="spot"><b data-count="45" data-suffix="+">0</b><span>Brands shaped</span></div>
-        <div class="spot"><b data-count="100" data-suffix="%">0</b><span>Pixel obsession</span></div>
+      <div class="stats" data-reveal>
+        <div class="spot"><b id="stat-projects" data-count="9">0</b><span data-i18n="st1"></span></div>
+        <div class="spot"><b data-count="6">0</b><span data-i18n="st2"></span></div>
+        <div class="spot"><b data-count="62">0</b><span data-i18n="st3"></span></div>
+        <div class="spot"><b data-count="4">0</b><span data-i18n="st4"></span></div>
       </div>
     </section>
 
@@ -264,34 +253,34 @@
     <section class="services" id="services">
       <div class="section-heading services-heading">
         <div>
-          <p class="section-index" data-reveal>06 / SERVICES</p>
-          <h2 class="split">What I design.</h2>
+          <p class="section-index" data-reveal data-i18n="svcIdx"></p>
+          <h2 class="split" data-i18n="svcTitle"></h2>
         </div>
       </div>
 
       <div class="service-list">
-        <div class="service-row spot" data-preview="0" data-reveal>
+        <div class="service-row spot" data-preview="gdt-identity" data-reveal>
           <span>01</span>
-          <h3>Brand Identity</h3>
-          <p>Logos, visual languages, brand systems and guidelines.</p>
+          <h3 data-i18n="s1t"></h3>
+          <p data-i18n="s1p"></p>
           <i class="svc-arrow" aria-hidden="true">↗</i>
         </div>
-        <div class="service-row spot" data-preview="2" data-reveal>
+        <div class="service-row spot" data-preview="club-italia-flyers" data-reveal>
           <span>02</span>
-          <h3>Digital Design</h3>
-          <p>Social assets, campaigns, web visuals and digital experiences.</p>
+          <h3 data-i18n="s2t"></h3>
+          <p data-i18n="s2p"></p>
           <i class="svc-arrow" aria-hidden="true">↗</i>
         </div>
-        <div class="service-row spot" data-preview="4" data-reveal>
+        <div class="service-row spot" data-preview="the-tower-official-merch-design" data-reveal>
           <span>03</span>
-          <h3>Editorial &amp; Print</h3>
-          <p>Posters, layouts, publications and physical communication.</p>
+          <h3 data-i18n="s3t"></h3>
+          <p data-i18n="s3p"></p>
           <i class="svc-arrow" aria-hidden="true">↗</i>
         </div>
-        <div class="service-row spot" data-preview="7" data-reveal>
+        <div class="service-row spot" data-preview="urban-hideout" data-reveal>
           <span>04</span>
-          <h3>3D Modeling &amp; Environment Art</h3>
-          <p>3D models, props, and rendered environments</p>
+          <h3 data-i18n="s4t"></h3>
+          <p data-i18n="s4p"></p>
           <i class="svc-arrow" aria-hidden="true">↗</i>
         </div>
       </div>
@@ -300,21 +289,23 @@
 
     <!-- CONTACT -->
     <section class="contact" id="contact">
-      <p class="section-index" data-reveal>07 / CONTACT</p>
+      <p class="section-index" data-reveal data-i18n="ctIdx"></p>
       <div class="contact-main">
-        <p data-reveal>Have a project in mind?</p>
-        <a class="magnetic" href="mailto:hello@thawalife.com" data-cursor="WRITE">Let's make it visual.<span>↗</span></a>
+        <p data-reveal data-i18n="ctLead"></p>
+        <a class="magnetic" href="mailto:thawalife@gmail.com" data-cursor="WRITE"><span id="contact-text" data-i18n="ctLink">Facciamolo visivo.</span><span class="arrow">↗</span></a>
       </div>
+      <ul class="socials" id="socials" data-reveal></ul>
       <div class="contact-footer">
-        <span>THAWALIFE / GRAPHIC DESIGN PORTFOLIO</span>
-        <span>LOCAL TIME <b id="clock">--:--</b></span>
-        <a href="#home" class="to-top">BACK TO TOP ↑</a>
+        <span data-i18n="ctFooter">WALIFE / PORTFOLIO DI GRAPHIC DESIGN</span>
+        <span><span data-i18n="ctTime">ORA LOCALE</span> <b id="clock">--:--</b></span>
+        <a href="#home" class="to-top" data-i18n="toTop">TORNA SU ↑</a>
         <span>© <span id="year"></span></span>
       </div>
     </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="./data.js"></script>
   <script src="./app.js"></script>
   <script src="./fx.js"></script>
   <script>

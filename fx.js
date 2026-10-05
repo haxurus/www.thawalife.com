@@ -1,8 +1,8 @@
 /* ============================================================
-   THAWALIFE - home interactions
-   Loader, cursor, reveals, pinned showcase, 3D carousel,
-   archive parallax, marquees, counters, service previews.
-   (Badge / lanyard physics live in app.js)
+   WALIFE - home interactions
+   i18n (IT/EN), loader, cursor, reveals, pinned showcase,
+   3D carousel, archive parallax, marquees, counters, previews.
+   Content lives in data.js. Badge / lanyard physics: app.js.
    ============================================================ */
 (() => {
   'use strict';
@@ -16,84 +16,82 @@
   const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ----------------------------------------------------------
-     PROJECTS
-     Edit this list to add real work. To use a real image instead
-     of the generative placeholder art, set `img: 'img/projects/xyz.jpg'`.
-     `art` picks the placeholder style (1-8). The first 5 entries
-     appear in the pinned showcase, all of them in the carousel.
-     `url` is the project link (defaults to the archive page).
+     DATA + LANGUAGE
      ---------------------------------------------------------- */
-  const ARCHIVE_URL = 'projects.html';
-  const PROJECTS = [
-    { slug: 'form',          title: 'Form',            tags: 'Brand identity / Logo system',     year: '2025', art: 1, img: '' },
-    { slug: 'objects',       title: 'Objects in Motion', tags: 'Poster system / Typography',      year: '2025', art: 2, img: '' },
-    { slug: 'cards',         title: 'Cards',           tags: 'Digital campaign / Social assets', year: '2024', art: 3, img: '' },
-    { slug: 'orbit',         title: 'Orbit',           tags: 'Visual identity / Motion',         year: '2024', art: 4, img: '' },
-    { slug: 'grid-theory',   title: 'Grid Theory',     tags: 'Editorial / Layout',               year: '2024', art: 5, img: '' },
-    { slug: 'nova',          title: 'Nova',            tags: 'Packaging / Art direction',        year: '2023', art: 6, img: '' },
-    { slug: 'voltage',       title: 'Voltage',         tags: 'Event branding / Poster',          year: '2023', art: 7, img: '' },
-    { slug: 'sundown',       title: 'Sundown',         tags: '3D / Environment art',             year: '2023', art: 8, img: '' }
-  ];
-  const FEATURED = PROJECTS.slice(0, 5);
+  const W = window.WALIFE;
+  const { PROJECTS, ARCHIVE_URL } = W;
+  const bySlug = (s) => PROJECTS.find((p) => p.slug === s);
+  const FEATURED = W.FEATURED.map(bySlug).filter(Boolean);
 
-  const ART = {
-    1: '<span class="big">FORM</span><span class="tag">Brand identity / 01</span><i class="sun"></i><i class="ring"></i>',
-    2: '<span class="t">OBJECTS<br>IN MOTION</span><i class="dot">S02</i><span class="tag">Poster system / Series 02</span>',
-    3: '<i class="c c1">A</i><i class="c c2">B</i><i class="c c3">C</i><span class="tag">Digital / 03</span>',
-    4: '<span class="tag">Orbit / 04</span><i class="r r4"></i><i class="r r3"></i><i class="r r2"></i><i class="r r1"></i><i class="core"></i>',
-    5: '<span class="aa">Aa</span><i class="sq"></i><i class="ln1"></i><i class="ln2"></i><i class="bar"></i><span class="tag">Grid theory / 05</span>',
-    6: '<i class="b b1"></i><i class="b b2"></i><i class="b b3"></i><span class="t">NOVA</span><span class="tag">Packaging / 06</span>',
-    7: '<span class="n">07</span><span class="tag">Voltage / 07</span>',
-    8: '<i class="sun"></i><i class="floor"></i><span class="tag">Sundown / 08</span>'
+  let lang = W.DEFAULT_LANG;
+  try {
+    const saved = localStorage.getItem('walife-lang');
+    if (W.LANGS.includes(saved)) lang = saved;
+  } catch (e) { /* storage unavailable */ }
+
+  const t = (key, vars) => {
+    let v = W.DICT[lang][key];
+    if (v === undefined) v = W.DICT[W.DEFAULT_LANG][key];
+    if (typeof v === 'string' && vars) Object.keys(vars).forEach((k) => { v = v.replace(`{${k}}`, vars[k]); });
+    return v === undefined ? '' : v;
   };
+  const L = (o) => (typeof o === 'string' ? o : (o[lang] || o[W.DEFAULT_LANG]));
+
   const artHTML = (p) =>
-    `<div class="art a${p.art}">${p.img ? `<img src="${p.img}" alt="" loading="lazy" draggable="false">` : ART[p.art]}</div>`;
+    `<div class="art"><img src="${p.img}" alt="" loading="lazy" decoding="async" draggable="false"></div>`;
   const hrefOf = (p) => p.url || `${ARCHIVE_URL}#${p.slug}`;
+  const yearOf = (p) => p.date.slice(0, 4);
   const pad = (n) => String(n).padStart(2, '0');
 
   /* ----------------------------------------------------------
-     RENDER: showcase, carousel, archive tiles
+     RENDER: showcase, carousel, archive tiles, socials
      ---------------------------------------------------------- */
   const scTrack = $('#showcase-track');
   scTrack.innerHTML =
     `<div class="sc-intro">
-       <p class="section-index">FEATURED</p>
-       <h3>${FEATURED.length} stories,<br>one scroll.</h3>
-       <p>Identity, typography and digital work, each built around one strong idea.</p>
-       <div class="arrow-line"><i></i>KEEP SCROLLING</div>
+       <p class="section-index" data-i18n="scFeatured"></p>
+       <h3 data-i18n="scIntroTitle"></h3>
+       <p data-i18n="scIntroText"></p>
+       <div class="arrow-line"><i></i><span data-i18n="scKeep"></span></div>
      </div>` +
     FEATURED.map((p, i) =>
       `<a class="sc-card" href="${hrefOf(p)}" data-cursor="VIEW">
          <span class="sc-bignum" aria-hidden="true">${pad(i + 1)}</span>
          <div class="sc-media">
            <div class="sc-art">${artHTML(p)}</div>
-           <span class="sc-chip"><b>${pad(i + 1)}</b> / ${p.year}</span>
+           <span class="sc-chip"><b>${pad(i + 1)}</b> / ${yearOf(p)}</span>
            <span class="sc-view" aria-hidden="true">↗</span>
          </div>
-         <div class="sc-meta"><h3>${p.title}</h3><p>${p.tags}</p></div>
+         <div class="sc-meta"><h3 data-pt="${p.slug}"></h3><p data-ptag="${p.slug}"></p></div>
        </a>`).join('') +
     `<div class="sc-end">
-       <p class="section-index">AND THERE'S MORE</p>
-       <h3>The full<br>archive.</h3>
-       <p>Every project, filterable and in full detail, lives on its own page.</p>
-       <a class="button button-primary magnetic" href="${ARCHIVE_URL}">All projects <span aria-hidden="true">↗</span></a>
+       <p class="section-index" data-i18n="scMore"></p>
+       <h3 data-i18n="scEndTitle"></h3>
+       <p data-i18n="scEndText"></p>
+       <a class="button button-primary magnetic" href="${ARCHIVE_URL}"><span data-i18n="scEndBtn"></span> <span aria-hidden="true">↗</span></a>
      </div>`;
   $('#hud-total').textContent = pad(FEATURED.length);
+  $('#stat-projects').dataset.count = PROJECTS.length;
 
   const cfItemsEl = $('#cf-items');
   cfItemsEl.innerHTML = PROJECTS.map((p, i) =>
-    `<a class="cf-item" href="${hrefOf(p)}" data-i="${i}" draggable="false" aria-label="${p.title}">${artHTML(p)}</a>`
+    `<a class="cf-item" href="${hrefOf(p)}" data-i="${i}" data-slug="${p.slug}" draggable="false">${artHTML(p)}</a>`
   ).join('');
 
-  const COLS = [[0, 3, 6, 1, 5], [2, 5, 7, 4, 0], [4, 1, 0, 6, 3]];
+  const COLS = [[0, 3, 6, 1, 4], [2, 5, 8, 7, 0], [4, 7, 1, 6, 3]];
   $('#ar-cols').innerHTML = COLS.map((col) =>
     `<div class="ar-col">${col.map((idx, k) =>
-      `<div class="ar-tile${(k + idx) % 3 === 0 ? ' wide' : ''}">${artHTML(PROJECTS[idx])}</div>`).join('')}</div>`
+      `<div class="ar-tile${(k + idx) % 3 === 0 ? ' wide' : ''}">${artHTML(PROJECTS[idx % PROJECTS.length])}</div>`).join('')}</div>`
   ).join('');
   $$('.ar-col').forEach((c) => { c.style.marginTop = '-240px'; });
 
+  $('#socials').innerHTML = W.SOCIALS.map((s) => {
+    const ext = /^https?:/.test(s.url) ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return `<li><a href="${s.url}"${ext} data-cursor="OPEN">${s.name}<span aria-hidden="true">↗</span></a></li>`;
+  }).join('');
+
   /* ----------------------------------------------------------
-     TEXT SPLITTING
+     TEXT SPLITTING (headings, about lead, contact letters)
      ---------------------------------------------------------- */
   function wrapWords(root, make) {
     let i = 0;
@@ -114,7 +112,7 @@
     return i;
   }
 
-  $$('.split').forEach((el) => {
+  function splitHeading(el) {
     el.setAttribute('aria-label', el.textContent.trim().replace(/\s+/g, ' '));
     wrapWords(el, (word, i) => {
       const w = document.createElement('span');
@@ -126,19 +124,75 @@
       w.append(s);
       return w;
     });
-  });
+  }
 
   const lead = $('#about-lead');
-  lead.setAttribute('aria-label', lead.textContent.trim().replace(/\s+/g, ' '));
-  wrapWords(lead, (word) => {
-    const s = document.createElement('span');
-    s.className = 'sw';
-    s.setAttribute('aria-hidden', 'true');
-    s.textContent = word;
-    return s;
-  });
-  const leadWords = $$('.sw', lead);
+  let leadWords = [];
   let leadOn = -1;
+  function splitLead() {
+    lead.setAttribute('aria-label', lead.textContent.trim().replace(/\s+/g, ' '));
+    wrapWords(lead, (word) => {
+      const s = document.createElement('span');
+      s.className = 'sw';
+      s.setAttribute('aria-hidden', 'true');
+      s.textContent = word;
+      return s;
+    });
+    leadWords = $$('.sw', lead);
+    leadOn = -1;
+  }
+
+  const contactText = $('#contact-text');
+  const cLetters = [];
+  function splitContact() {
+    cLetters.length = 0;
+    const txt = contactText.textContent;
+    contactText.parentElement.setAttribute('aria-label', txt);
+    contactText.textContent = '';
+    [...txt].forEach((ch) => {
+      if (ch === ' ') { contactText.append(' '); return; }
+      const s = document.createElement('span');
+      s.className = 'cl';
+      s.setAttribute('aria-hidden', 'true');
+      s.textContent = ch;
+      contactText.append(s);
+      cLetters.push(s);
+    });
+  }
+
+  /* ----------------------------------------------------------
+     I18N: apply strings, then re-split the animated texts
+     ---------------------------------------------------------- */
+  let rotI = 0;
+  function applyStatic() {
+    document.documentElement.lang = lang;
+    $$('[data-i18n]').forEach((el) => { el.innerHTML = t(el.dataset.i18n, { n: FEATURED.length }); });
+    $$('[data-i18n-aria]').forEach((el) => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
+
+    document.title = t('docTitle');
+    const md = $('meta[name="description"]');
+    if (md) md.content = t('docDesc');
+    const ogt = $('meta[property="og:title"]');
+    if (ogt) ogt.content = t('docTitle');
+    const ogd = $('meta[property="og:description"]');
+    if (ogd) ogd.content = t('docDesc');
+
+    $('#h1').setAttribute('aria-label', t('h1aria'));
+    rotI = 0;
+    $('#rotator').textContent = t('rot')[0];
+    $('#orb-text').textContent = t('arOrb');
+
+    $$('[data-pt]').forEach((el) => { el.textContent = L(bySlug(el.dataset.pt).title); });
+    $$('[data-ptag]').forEach((el) => { el.textContent = L(bySlug(el.dataset.ptag).tags); });
+    $$('.cf-item').forEach((a) => a.setAttribute('aria-label', L(bySlug(a.dataset.slug).title)));
+
+    $$('.split').forEach(splitHeading);
+    splitLead();
+    splitContact();
+
+    $$('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  }
+  applyStatic();
 
   /* ----------------------------------------------------------
      LOADER + REVEALS
@@ -224,16 +278,16 @@
   function initRotator() {
     const el = $('#rotator');
     if (!el || reduce) return;
-    const words = ['visuals.', 'brands.', 'posters.', 'identities.', 'worlds.'];
-    let i = 0;
     setInterval(async () => {
       if (document.hidden) return;
-      i = (i + 1) % words.length;
+      const words = t('rot');
+      rotI = (rotI + 1) % words.length;
+      const next = words[rotI];
       await el.animate(
         [{ transform: 'translateY(0)', opacity: 1 }, { transform: 'translateY(-70%)', opacity: 0 }],
         { duration: 380, easing: 'cubic-bezier(.5,0,.8,.4)', fill: 'forwards' }
       ).finished;
-      el.textContent = words[i];
+      el.textContent = next;
       await el.animate(
         [{ transform: 'translateY(70%)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1 }],
         { duration: 600, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'forwards' }
@@ -377,8 +431,9 @@
     const p = PROJECTS[idx];
     const apply = () => {
       $('#cf-num').textContent = `${pad(idx + 1)} / ${pad(N)}`;
-      $('#cf-title').textContent = p.title;
-      $('#cf-tags').textContent = `${p.tags}  ·  ${p.year}`;
+      $('#cf-title').textContent = L(p.title);
+      $('#cf-tags').textContent = `${L(p.tags)}  ·  ${yearOf(p)}`;
+      $('#cf-desc').textContent = L(p.desc);
       $('#cf-link').href = hrefOf(p);
       cfGhost.textContent = pad(idx + 1);
       cfInfo.classList.remove('swap');
@@ -507,7 +562,7 @@
   if (fine) {
     $$('.service-row').forEach((row) => {
       row.addEventListener('pointerenter', (e) => {
-        svcPrev.innerHTML = artHTML(PROJECTS[+row.dataset.preview]);
+        svcPrev.innerHTML = artHTML(bySlug(row.dataset.preview));
         if (!svcPrev.classList.contains('show')) { px = tx = e.clientX; py = ty = e.clientY; }
         svcPrev.classList.add('show');
       });
@@ -748,22 +803,8 @@ void main(){
     });
   }
 
-  /* contact: wave letters */
+  /* contact: wave letters (letters are built by splitContact) */
   const contactLink = $('.contact-main a');
-  const cLetters = [];
-  {
-    const tn = [...contactLink.childNodes].find((n) => n.nodeType === 3);
-    const frag = document.createDocumentFragment();
-    [...tn.textContent].forEach((ch) => {
-      if (ch === ' ') { frag.append(' '); return; }
-      const s = document.createElement('span');
-      s.className = 'cl';
-      s.textContent = ch;
-      frag.append(s);
-      cLetters.push(s);
-    });
-    tn.replaceWith(frag);
-  }
   if (fine && !reduce) {
     contactLink.addEventListener('pointermove', (e) => {
       cLetters.forEach((l) => {
@@ -867,6 +908,19 @@ void main(){
 
     requestAnimationFrame(tick);
   }
+
+  /* ----------------------------------------------------------
+     LANGUAGE SWITCH
+     ---------------------------------------------------------- */
+  function setLang(next) {
+    if (next === lang || !W.LANGS.includes(next)) return;
+    lang = next;
+    try { localStorage.setItem('walife-lang', lang); } catch (e) { /* ignore */ }
+    applyStatic();
+    if (cfActive >= 0) setActive(cfActive, true);
+    layout();
+  }
+  $$('.lang button').forEach((b) => b.addEventListener('click', () => setLang(b.dataset.lang)));
 
   /* ----------------------------------------------------------
      LAYOUT + BOOT
