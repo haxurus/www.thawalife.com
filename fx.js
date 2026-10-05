@@ -174,6 +174,7 @@
   const loader = $('#loader');
   const loaderCount = $('#loader-count');
   const loaderBar = $('#loader-bar');
+  const loaderFill = $('#loader-fill');
   let started = false;
 
   function startSite() {
@@ -239,6 +240,7 @@
       const eased = 1 - Math.pow(1 - p, 3);
       loaderCount.textContent = String(Math.round(eased * 100)).padStart(3, '0');
       loaderBar.style.transform = `scaleX(${eased})`;
+      loaderFill.style.clipPath = `inset(${((1 - eased) * 100).toFixed(1)}% 0 0 0)`;
       if (p >= 1) setTimeout(startSite, 150);
       else requestAnimationFrame(loadTick);
     };

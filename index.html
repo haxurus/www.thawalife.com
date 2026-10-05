@@ -17,13 +17,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add('js');</script>
+  <link rel="preload" as="image" href="./img/logo-mark.webp">
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./home.css">
 </head>
 <body>
   <!-- Intro loader -->
   <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader-word"><span>W</span><span>A</span><span>L</span><span>I</span><span>F</span><span>E</span></div>
+    <div class="loader-logo">
+      <img class="ghost" src="./img/logo-mark.webp" alt="" width="273" height="420">
+      <img class="fill" id="loader-fill" src="./img/logo-mark.webp" alt="" width="273" height="420">
+    </div>
     <div class="loader-bar"><i id="loader-bar"></i></div>
     <div class="loader-count"><span id="loader-count">000</span><small>/ 100</small></div>
   </div>
