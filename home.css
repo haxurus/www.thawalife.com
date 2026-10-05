@@ -624,7 +624,7 @@ html.lenis, html.lenis body { height: auto; }
   z-index: -1;
   pointer-events: none;
   mix-blend-mode: screen;
-  opacity: .2;
+  opacity: .1;
 }
 .hero { background: rgba(8,8,8,.16); backdrop-filter: none; }
 .badge-stage { background-color: rgba(8,8,8,.16); backdrop-filter: blur(1px); }

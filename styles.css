@@ -37,7 +37,7 @@ body::before {
   background-repeat: no-repeat;
   filter: grayscale(1) contrast(1.06) brightness(.29);
   transform: scale(1.02);
-  opacity: .2;
+  opacity: .07;
 }
 body::after {
   content: "";
