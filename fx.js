@@ -1,6 +1,6 @@
 /* ============================================================
    WALIFE - home interactions
-   i18n (IT/EN), loader, cursor, reveals, pinned showcase,
+   i18n (IT/EN), loader, cursor, reveals,
    3D carousel, archive parallax, marquees, counters, previews.
    Content lives in data.js. Badge / lanyard physics: app.js.
    ============================================================ */
@@ -21,7 +21,6 @@
   const W = window.WALIFE;
   const { PROJECTS, ARCHIVE_URL } = W;
   const bySlug = (s) => PROJECTS.find((p) => p.slug === s);
-  const FEATURED = W.FEATURED.map(bySlug).filter(Boolean);
 
   let lang = W.DEFAULT_LANG;
   try {
@@ -37,45 +36,20 @@
   };
   const L = (o) => (typeof o === 'string' ? o : (o[lang] || o[W.DEFAULT_LANG]));
 
-  const artHTML = (p) =>
-    `<div class="art"><img src="${p.img}" alt="" loading="lazy" decoding="async" draggable="false"></div>`;
+  const artHTML = (p, eager) =>
+    `<div class="art"><img src="${p.img}" alt="" loading="${eager ? 'eager' : 'lazy'}" decoding="async" draggable="false"></div>`;
   const hrefOf = (p) => p.url || `${ARCHIVE_URL}#${p.slug}`;
   const yearOf = (p) => p.date.slice(0, 4);
   const pad = (n) => String(n).padStart(2, '0');
 
   /* ----------------------------------------------------------
-     RENDER: showcase, carousel, archive tiles, socials
+     RENDER: carousel, archive tiles, socials
      ---------------------------------------------------------- */
-  const scTrack = $('#showcase-track');
-  scTrack.innerHTML =
-    `<div class="sc-intro">
-       <p class="section-index" data-i18n="scFeatured"></p>
-       <h3 data-i18n="scIntroTitle"></h3>
-       <p data-i18n="scIntroText"></p>
-       <div class="arrow-line"><i></i><span data-i18n="scKeep"></span></div>
-     </div>` +
-    FEATURED.map((p, i) =>
-      `<a class="sc-card" href="${hrefOf(p)}" data-cursor="VIEW">
-         <span class="sc-bignum" aria-hidden="true">${pad(i + 1)}</span>
-         <div class="sc-media">
-           <div class="sc-art">${artHTML(p)}</div>
-           <span class="sc-chip"><b>${pad(i + 1)}</b> / ${yearOf(p)}</span>
-           <span class="sc-view" aria-hidden="true">↗</span>
-         </div>
-         <div class="sc-meta"><h3 data-pt="${p.slug}"></h3><p data-ptag="${p.slug}"></p></div>
-       </a>`).join('') +
-    `<div class="sc-end">
-       <p class="section-index" data-i18n="scMore"></p>
-       <h3 data-i18n="scEndTitle"></h3>
-       <p data-i18n="scEndText"></p>
-       <a class="button button-primary magnetic" href="${ARCHIVE_URL}"><span data-i18n="scEndBtn"></span> <span aria-hidden="true">↗</span></a>
-     </div>`;
-  $('#hud-total').textContent = pad(FEATURED.length);
   $('#stat-projects').dataset.count = PROJECTS.length;
 
   const cfItemsEl = $('#cf-items');
   cfItemsEl.innerHTML = PROJECTS.map((p, i) =>
-    `<a class="cf-item" href="${hrefOf(p)}" data-i="${i}" data-slug="${p.slug}" draggable="false">${artHTML(p)}</a>`
+    `<a class="cf-item" href="${hrefOf(p)}" data-i="${i}" data-slug="${p.slug}" draggable="false">${artHTML(p, true)}</a>`
   ).join('');
 
   const COLS = [[0, 3, 6, 1, 4], [2, 5, 8, 7, 0], [4, 7, 1, 6, 3]];
@@ -166,7 +140,7 @@
   let rotI = 0;
   function applyStatic() {
     document.documentElement.lang = lang;
-    $$('[data-i18n]').forEach((el) => { el.innerHTML = t(el.dataset.i18n, { n: FEATURED.length }); });
+    $$('[data-i18n]').forEach((el) => { el.innerHTML = t(el.dataset.i18n, {}); });
     $$('[data-i18n-aria]').forEach((el) => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
 
     document.title = t('docTitle');
@@ -369,46 +343,6 @@
     return { track, speed: +el.dataset.speed || 1, offset: 0, half: 1 };
   });
   const measureMarquees = () => marquees.forEach((m) => { m.half = m.track.scrollWidth / 2; });
-
-  /* ----------------------------------------------------------
-     SHOWCASE (pinned horizontal scroll)
-     ---------------------------------------------------------- */
-  const showcase = $('#showcase');
-  const scSticky = $('.showcase-sticky');
-  const scCards = $$('.sc-card');
-  const hudCur = $('#hud-current');
-  const hudBar = $('#hud-bar');
-  let scMax = 0, scCur = 0, hudIdx = -1;
-
-  function measureShowcase() {
-    scMax = Math.max(0, scTrack.scrollWidth - scSticky.clientWidth);
-    showcase.style.height = (scMax + innerHeight) + 'px';
-  }
-
-  function updateShowcase() {
-    const r = showcase.getBoundingClientRect();
-    if (r.bottom < -200 || r.top > innerHeight + 200) return;
-    const prog = clamp(-r.top / Math.max(1, r.height - innerHeight), 0, 1);
-    const want = prog * scMax;
-    const lag = want - scCur;
-    scCur = reduce ? want : lerp(scCur, want, lenis ? .2 : .12);
-    const skew = reduce ? 0 : clamp(-lag * .012, -6, 6);
-    scTrack.style.transform = `translate3d(${-scCur.toFixed(2)}px,0,0) skewX(${skew.toFixed(2)}deg)`;
-    hudBar.style.transform = `scaleX(${prog})`;
-
-    const mid = scSticky.getBoundingClientRect();
-    const cx = mid.left + mid.width / 2;
-    let best = 0, bestD = Infinity;
-    scCards.forEach((c, i) => {
-      const cr = c.getBoundingClientRect();
-      const off = cr.left + cr.width / 2 - cx;
-      if (!c.classList.contains('in') && cr.left < innerWidth * .92) c.classList.add('in');
-      const art = c.querySelector('.sc-art');
-      art.style.transform = `translate3d(${(-off * .1).toFixed(1)}px,0,0)`;
-      if (Math.abs(off) < bestD) { bestD = Math.abs(off); best = i; }
-    });
-    if (best !== hudIdx) { hudIdx = best; hudCur.textContent = pad(best + 1); }
-  }
 
   /* ----------------------------------------------------------
      3D CAROUSEL
@@ -736,7 +670,7 @@ void main(){
   }
 
   /* ----------------------------------------------------------
-     TILT + GLARE (showcase cards, active carousel card)
+     GLARE + PARALLAX (active carousel card)
      ---------------------------------------------------------- */
   function addGlare(host) {
     const g = document.createElement('i');
@@ -745,18 +679,6 @@ void main(){
     return g;
   }
   if (fine && !reduce) {
-    $$('.sc-media').forEach((m) => {
-      const g = addGlare(m);
-      m.addEventListener('pointermove', (e) => {
-        const r = m.getBoundingClientRect();
-        const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
-        m.style.transform = `perspective(1100px) rotateX(${((.5 - py) * 7).toFixed(2)}deg) rotateY(${((px - .5) * 9).toFixed(2)}deg) scale(1.012)`;
-        g.style.setProperty('--gx', (px * 100) + '%');
-        g.style.setProperty('--gy', (py * 100) + '%');
-        m.classList.add('is-tilting');
-      });
-      m.addEventListener('pointerleave', () => { m.style.transform = ''; m.classList.remove('is-tilting'); });
-    });
     cfEls.forEach((el) => {
       const g = addGlare(el);
       const art = $('.art', el);
@@ -884,7 +806,6 @@ void main(){
       GL.draw(now / 1000, gmx, gmy, max > 0 ? y / max : 0);
     }
 
-    updateShowcase();
     updateCf(now);
     updateArchive();
 
@@ -927,7 +848,6 @@ void main(){
      ---------------------------------------------------------- */
   function layout() {
     if (GL) { GL.size(); if (reduce) GL.draw(12, innerWidth * .65, innerHeight * .4, 0); }
-    measureShowcase();
     measureCf();
     measureMarquees();
   }
