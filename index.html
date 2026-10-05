@@ -5,63 +5,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080808">
   <meta name="description" content="THAWALIFE - Graphic designer portfolio focused on visual identities, digital design and art direction.">
+  <meta property="og:title" content="THAWALIFE - Graphic Designer">
+  <meta property="og:description" content="Visual identities, digital design and art direction. Ideas shaped into visuals.">
+  <meta property="og:image" content="./img/banner_render_favicon.png">
   <title>THAWALIFE - Graphic Designer</title>
   <link rel="icon" type="image/png" href="./img/favicon.png">
   <link rel="apple-touch-icon" href="./img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./home.css">
 </head>
 <body>
+  <!-- Intro loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-word"><span>T</span><span>H</span><span>A</span><span>W</span><span>A</span><span>L</span><span>I</span><span>F</span><span>E</span></div>
+    <div class="loader-bar"><i id="loader-bar"></i></div>
+    <div class="loader-count"><span id="loader-count">000</span><small>/ 100</small></div>
+  </div>
+
+  <div class="cursor" id="cursor" aria-hidden="true"><i class="cursor-dot"></i><span class="cursor-ring"><b></b></span></div>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
 
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <a class="brand" href="#home" aria-label="THAWALIFE home">
       <span class="brand-mark brand-logo"><img src="./img/favicon.png" alt=""></span>
       <span>THAWALIFE</span>
     </a>
 
     <nav class="site-nav" aria-label="Primary navigation">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
+      <a href="#work" data-nav>Work</a>
+      <a href="#archive" data-nav>Archive</a>
+      <a href="#about" data-nav>About</a>
+      <a href="#services" data-nav>Services</a>
+      <a href="#contact" data-nav>Contact</a>
     </nav>
 
     <span class="status"><i></i> available for work</span>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
   </header>
 
+  <div class="menu" id="menu" aria-hidden="true">
+    <a href="#work">Work</a>
+    <a href="#archive">Archive</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a class="menu-all" href="projects.html">All projects ↗</a>
+  </div>
+
   <main>
+    <!-- HERO -->
     <section class="hero" id="home">
+      <div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-copy">
-        <p class="eyebrow"><span>01</span> GRAPHIC DESIGNER / VISUAL CREATIVE</p>
-        <h1>
-          Ideas shaped<br>
-          into <em>visuals.</em>
+        <p class="eyebrow" data-reveal><span>01</span> GRAPHIC DESIGNER / VISUAL CREATIVE</p>
+        <h1 aria-label="Ideas shaped into visuals.">
+          <span class="ln"><span>Ideas shaped</span></span>
+          <span class="ln"><span>into <em class="rotator" id="rotator" aria-hidden="true">visuals.</em></span></span>
         </h1>
-        <p class="hero-text">
+        <p class="hero-text" data-reveal style="--d:.5s">
           I create visual identities, digital graphics and design systems
           built to be recognizable, coherent and memorable.
         </p>
 
-        <div class="hero-actions">
-          <a class="button button-primary" href="#work">
+        <div class="hero-actions" data-reveal style="--d:.65s">
+          <a class="button button-primary magnetic" href="#showcase">
             View selected work
             <span aria-hidden="true">↘</span>
           </a>
-          <a class="button button-ghost" href="#contact">
+          <a class="button button-ghost magnetic" href="#contact">
             Start a project
           </a>
         </div>
 
-        <div class="hero-footnote">
+        <div class="hero-footnote" data-reveal style="--d:.8s">
           <span class="line"></span>
           <span>Drag the badge. Click to flip.</span>
         </div>
       </div>
 
-      <div class="badge-stage" id="badge-stage" aria-label="Interactive designer badge">
+      <div class="badge-stage" id="badge-stage" data-cursor="DRAG" aria-label="Interactive designer badge">
         <canvas id="lanyard-canvas" aria-hidden="true"></canvas>
 
         <div class="badge-shell" id="badge-shell">
@@ -116,130 +143,176 @@
           DRAG / FLIP
         </div>
       </div>
+
+      <a class="scroll-cue" href="#work" aria-label="Scroll to work"><span></span>SCROLL</a>
     </section>
 
+    <!-- MARQUEE -->
+    <section class="marquee-band" aria-hidden="true">
+      <div class="marquee" data-speed="1.1">
+        <div class="marquee-track">
+          <span>Brand Identity</span><i>✦</i><span>Art Direction</span><i>✦</i><span>Poster Design</span><i>✦</i><span>Digital Campaigns</span><i>✦</i><span>3D &amp; Environment</span><i>✦</i>
+        </div>
+      </div>
+      <div class="marquee marquee-outline" data-speed="-1.1">
+        <div class="marquee-track">
+          <span>Typography</span><i>✦</i><span>Visual Systems</span><i>✦</i><span>Packaging</span><i>✦</i><span>Editorial</span><i>✦</i><span>Motion</span><i>✦</i>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK INTRO -->
     <section class="work-section" id="work">
       <div class="section-heading">
         <div>
-          <p class="section-index">02 / SELECTED WORK</p>
-          <h2>Selected projects.</h2>
+          <p class="section-index" data-reveal>02 / SELECTED WORK</p>
+          <h2 class="split">Work that refuses to blend in.</h2>
         </div>
-        <p class="section-copy">
-          A selection of identity, communication and digital design projects.
-          Real case studies can replace these placeholders as the portfolio grows.
+        <p class="section-copy" data-reveal style="--d:.2s">
+          A handful of recent projects across identity, communication and
+          digital design. Keep scrolling: the gallery moves with you.
+          The complete archive lives on its own page.
         </p>
-      </div>
-
-      <div class="project-grid">
-        <article class="project project-large">
-          <div class="project-visual visual-one" aria-hidden="true">
-            <span class="visual-word">FORM</span>
-            <span class="visual-number">01</span>
-            <div class="visual-disc"></div>
-          </div>
-          <div class="project-meta">
-            <div>
-              <span class="project-number">01</span>
-              <h3>Brand Identity</h3>
-            </div>
-            <p>Visual identity / Logo system / Guidelines</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="project-visual visual-two" aria-hidden="true">
-            <span class="poster-type">OBJECTS<br>IN MOTION</span>
-            <span class="poster-caption">POSTER SYSTEM / SERIES 02</span>
-          </div>
-          <div class="project-meta">
-            <div>
-              <span class="project-number">02</span>
-              <h3>Poster System</h3>
-            </div>
-            <p>Editorial / Typography / Art direction</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="project-visual visual-three" aria-hidden="true">
-            <div class="ui-card ui-card-a">A</div>
-            <div class="ui-card ui-card-b">B</div>
-            <div class="ui-card ui-card-c">C</div>
-            <span>DIGITAL / 03</span>
-          </div>
-          <div class="project-meta">
-            <div>
-              <span class="project-number">03</span>
-              <h3>Digital Campaign</h3>
-            </div>
-            <p>Social / Campaign assets / Creative direction</p>
-          </div>
-        </article>
       </div>
     </section>
 
+    <!-- PINNED HORIZONTAL SHOWCASE -->
+    <section class="showcase" id="showcase" aria-label="Featured projects">
+      <div class="showcase-sticky">
+        <div class="showcase-track" id="showcase-track"></div>
+        <div class="showcase-hud">
+          <span class="hud-count"><b id="hud-current">01</b> / <span id="hud-total">05</span></span>
+          <span class="hud-bar"><i id="hud-bar"></i></span>
+          <span class="hud-hint">SCROLL →</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D CAROUSEL -->
+    <section class="coverflow" id="carousel" aria-label="Project carousel">
+      <div class="cf-head">
+        <div>
+          <p class="section-index" data-reveal>03 / IN THE SPOTLIGHT</p>
+          <h2 class="split">Drag. Spin. Explore.</h2>
+        </div>
+        <div class="cf-arrows">
+          <button class="cf-btn magnetic" id="cf-prev" aria-label="Previous project">←</button>
+          <button class="cf-btn magnetic" id="cf-next" aria-label="Next project">→</button>
+        </div>
+      </div>
+
+      <div class="cf-stage" id="cf-stage" tabindex="0" data-cursor="DRAG" aria-roledescription="carousel">
+        <div class="cf-ghost" id="cf-ghost" aria-hidden="true">01</div>
+        <div class="cf-items" id="cf-items"></div>
+      </div>
+
+      <div class="cf-info" id="cf-info" aria-live="polite">
+        <span class="cf-num" id="cf-num">01</span>
+        <h3 id="cf-title">Form</h3>
+        <p id="cf-tags">Brand identity / Logo system</p>
+        <a class="cf-link" id="cf-link" href="projects.html" data-cursor="OPEN">Open project <span>↗</span></a>
+      </div>
+    </section>
+
+    <!-- ARCHIVE TEASER -->
+    <section class="archive" id="archive">
+      <div class="ar-cols" id="ar-cols" aria-hidden="true"></div>
+      <div class="ar-shade" aria-hidden="true"></div>
+      <div class="ar-cta">
+        <p class="section-index" data-reveal>04 / THE ARCHIVE</p>
+        <h2 class="split">This is only <em>the surface.</em></h2>
+        <p class="ar-copy" data-reveal style="--d:.2s">
+          What you've seen is a short selection. Every identity, poster, campaign
+          and 3D piece lives in the full archive, filterable and complete.
+        </p>
+        <a class="orb magnetic" href="projects.html" data-cursor="GO" aria-label="See all projects">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="orb-path" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
+            <text><textPath href="#orb-path">SEE ALL PROJECTS ✦ SEE ALL PROJECTS ✦ SEE ALL PROJECTS ✦ </textPath></text>
+          </svg>
+          <span class="orb-arrow">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
     <section class="about" id="about">
-      <p class="section-index">03 / ABOUT</p>
+      <p class="section-index" data-reveal>05 / ABOUT</p>
       <div class="about-content">
-        <p class="about-lead">
+        <p class="about-lead" id="about-lead">
           Graphic design is not decoration. It is the way an idea becomes
           clear, recognizable and worth remembering.
         </p>
-        <p class="about-body">
+        <p class="about-body" data-reveal>
           THAWALIFE is a graphic design portfolio focused on visual identity,
           digital communication and strong art direction. The approach combines
           typography, composition, color and systems that stay consistent across
           different formats.
         </p>
       </div>
+      <div class="stats" data-reveal>
+        <div><b data-count="120" data-suffix="+">0</b><span>Projects delivered</span></div>
+        <div><b data-count="8">0</b><span>Years of practice</span></div>
+        <div><b data-count="45" data-suffix="+">0</b><span>Brands shaped</span></div>
+        <div><b data-count="100" data-suffix="%">0</b><span>Pixel obsession</span></div>
+      </div>
     </section>
 
+    <!-- SERVICES -->
     <section class="services" id="services">
       <div class="section-heading services-heading">
         <div>
-          <p class="section-index">04 / SERVICES</p>
-          <h2>What I design.</h2>
+          <p class="section-index" data-reveal>06 / SERVICES</p>
+          <h2 class="split">What I design.</h2>
         </div>
       </div>
 
       <div class="service-list">
-        <div class="service-row">
+        <div class="service-row" data-preview="0" data-reveal>
           <span>01</span>
           <h3>Brand Identity</h3>
           <p>Logos, visual languages, brand systems and guidelines.</p>
+          <i class="svc-arrow" aria-hidden="true">↗</i>
         </div>
-        <div class="service-row">
+        <div class="service-row" data-preview="2" data-reveal>
           <span>02</span>
           <h3>Digital Design</h3>
           <p>Social assets, campaigns, web visuals and digital experiences.</p>
+          <i class="svc-arrow" aria-hidden="true">↗</i>
         </div>
-        <div class="service-row">
+        <div class="service-row" data-preview="4" data-reveal>
           <span>03</span>
-          <h3>Editorial & Print</h3>
+          <h3>Editorial &amp; Print</h3>
           <p>Posters, layouts, publications and physical communication.</p>
+          <i class="svc-arrow" aria-hidden="true">↗</i>
         </div>
-        <div class="service-row">
+        <div class="service-row" data-preview="7" data-reveal>
           <span>04</span>
-          <h3>3D Modeling & Environment Art</h3>
+          <h3>3D Modeling &amp; Environment Art</h3>
           <p>3D models, props, and rendered environments</p>
+          <i class="svc-arrow" aria-hidden="true">↗</i>
         </div>
       </div>
+      <div class="svc-preview" id="svc-preview" aria-hidden="true"></div>
     </section>
 
+    <!-- CONTACT -->
     <section class="contact" id="contact">
-      <p class="section-index">05 / CONTACT</p>
+      <p class="section-index" data-reveal>07 / CONTACT</p>
       <div class="contact-main">
-        <p>Have a project in mind?</p>
-        <a href="mailto:hello@thawalife.com">Let's make it visual.<span>↗</span></a>
+        <p data-reveal>Have a project in mind?</p>
+        <a class="magnetic" href="mailto:hello@thawalife.com" data-cursor="WRITE">Let's make it visual.<span>↗</span></a>
       </div>
       <div class="contact-footer">
         <span>THAWALIFE / GRAPHIC DESIGN PORTFOLIO</span>
+        <a href="#home" class="to-top">BACK TO TOP ↑</a>
         <span>© <span id="year"></span></span>
       </div>
     </section>
   </main>
 
   <script src="./app.js"></script>
+  <script src="./fx.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
