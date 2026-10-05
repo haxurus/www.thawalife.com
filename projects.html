@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Tutti i progetti di Walife: identità visive, poster per eventi, merch, mondi virtuali ed esperimenti.">
+  <meta property="og:title" content="Progetti – Walife">
+  <meta property="og:description" content="Tutti i progetti di Walife: identità visive, poster per eventi, merch, mondi virtuali ed esperimenti.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.thawalife.com/projects.html">
+  <meta property="og:image" content="https://www.thawalife.com/img/projects/the-tower-official-merch-design.webp">
+  <title>Progetti – Walife</title>
+  <link rel="icon" type="image/png" href="./img/favicon.png">
+  <link rel="apple-touch-icon" href="./img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./home.css">
+  <link rel="stylesheet" href="./projects.css">
+</head>
+<body class="page-projects">
+  <div class="cursor" id="cursor" aria-hidden="true"><i class="cursor-dot"></i><span class="cursor-ring"><b></b></span></div>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <a class="brand" href="./index.html" aria-label="Walife home">
+      <span class="brand-mark brand-logo"><img src="./img/favicon.png" alt=""></span>
+      <span>WALIFE</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="./index.html#work" data-i18n="navWork">Lavori</a>
+      <a href="./projects.html" class="active" aria-current="page" data-i18n="navArchive">Archivio</a>
+      <a href="./index.html#services" data-i18n="navServices">Servizi</a>
+      <a href="#contact" data-i18n="navContact">Contatti</a>
+    </nav>
+
+    <div class="lang" role="group" aria-label="Language / Lingua">
+      <button type="button" data-lang="it" aria-pressed="true">IT</button>
+      <i aria-hidden="true"></i>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+  </header>
+
+  <div class="menu" id="menu" aria-hidden="true">
+    <a href="./index.html#work" data-i18n="navWork">Lavori</a>
+    <a href="./projects.html" data-i18n="navArchive">Archivio</a>
+    <a href="./index.html#services" data-i18n="navServices">Servizi</a>
+    <a href="#contact" data-i18n="navContact">Contatti</a>
+  </div>
+
+  <main>
+    <!-- INTRO -->
+    <section class="pj-hero">
+      <div class="pj-hero-glow" aria-hidden="true"></div>
+      <a class="pj-back" href="./index.html" data-i18n="pjBack">← Home</a>
+      <p class="section-index pj-in" data-i18n="pjIdx">ARCHIVIO / TUTTI I LAVORI</p>
+      <h1 class="pj-title"><span class="pj-line"><span data-i18n="pjTitle">Tutti i <em>progetti.</em></span></span></h1>
+      <div class="pj-meta pj-in">
+        <p class="pj-lead" data-i18n="pjLead"></p>
+        <span class="pj-count"><b id="pj-count-num">09</b> <span id="pj-count-label"></span></span>
+      </div>
+    </section>
+
+    <!-- TOOLBAR -->
+    <div class="pj-toolbar" id="pj-toolbar">
+      <div class="pj-filters" id="pj-filters" role="group" data-i18n-aria="pjFilterAria"></div>
+      <div class="pj-views" role="group" data-i18n-aria="pjViewAria">
+        <button type="button" data-view="grid" aria-pressed="true"><i class="ico-grid" aria-hidden="true"></i><span data-i18n="pjGrid">Griglia</span></button>
+        <button type="button" data-view="list" aria-pressed="false"><i class="ico-list" aria-hidden="true"></i><span data-i18n="pjList">Lista</span></button>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <section class="pj-wrap" aria-live="polite">
+      <div class="pj-grid" id="pj-grid" data-view="grid"></div>
+      <p class="pj-empty" id="pj-empty" hidden data-i18n="pjEmpty"></p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <p class="section-index" data-i18n="ctLead">Hai un progetto in mente?</p>
+      <div class="contact-main">
+        <a class="magnetic" href="mailto:thawalife@gmail.com" data-cursor="WRITE"><span data-i18n="ctLink">Facciamolo visivo.</span><span class="arrow">↗</span></a>
+      </div>
+      <ul class="socials" id="socials"></ul>
+      <div class="contact-footer">
+        <span data-i18n="ctFooter">WALIFE / PORTFOLIO DI GRAPHIC DESIGN</span>
+        <a href="#" class="to-top" id="to-top" data-i18n="toTop">TORNA SU ↑</a>
+        <span>© <span id="year"></span></span>
+      </div>
+    </section>
+  </main>
+
+  <div class="svc-preview pj-preview" id="pj-preview" aria-hidden="true"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="./data.js"></script>
+  <script src="./projects.js"></script>
+</body>
+</html>

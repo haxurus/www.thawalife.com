@@ -8,10 +8,21 @@ window.WALIFE = {
   LANGS: ['it', 'en'],
   DEFAULT_LANG: 'it',
 
+  /* project categories (filters on the projects page) */
+  CATEGORIES: {
+    identity: { it: 'Identità', en: 'Identity' },
+    events: { it: 'Eventi', en: 'Events' },
+    merch: { it: 'Merch', en: 'Merch' },
+    vr: { it: 'Lavori VR', en: 'VR Integrated Works' },
+    experiments: { it: 'Esperimenti', en: 'Experiments' },
+    school: { it: 'Progetti scolastici', en: 'School Projects' }
+  },
+
   /* newest first. `img` = cover, `url` (optional) overrides the link */
   PROJECTS: [
     {
       slug: 'club-italia-flyers',
+      cats: ['events', 'vr'],
       title: 'Club Italia flyers',
       date: '2026-10-01',
       img: 'img/projects/club-italia-flyers.webp',
@@ -23,6 +34,7 @@ window.WALIFE = {
     },
     {
       slug: 'the-tower-official-merch-design',
+      cats: ['events', 'merch'],
       title: 'The Tower – Official Merch',
       date: '2026-05-11',
       img: 'img/projects/the-tower-official-merch-design.webp',
@@ -34,6 +46,7 @@ window.WALIFE = {
     },
     {
       slug: 'visual-experiments-2',
+      cats: ['experiments'],
       title: 'Visual Experiments #2',
       date: '2026-01-10',
       img: 'img/projects/visual-experiments-2.webp',
@@ -45,6 +58,7 @@ window.WALIFE = {
     },
     {
       slug: 'gdt-identity',
+      cats: ['identity'],
       title: 'GDT Identity',
       date: '2025-12-04',
       img: 'img/projects/gdt-identity.webp',
@@ -56,6 +70,7 @@ window.WALIFE = {
     },
     {
       slug: 'visual-experiments-1',
+      cats: ['experiments'],
       title: 'Visual Experiments #1',
       date: '2025-11-18',
       img: 'img/projects/visual-experiments-1.webp',
@@ -67,6 +82,7 @@ window.WALIFE = {
     },
     {
       slug: 'urban-hideout',
+      cats: ['experiments', 'vr'],
       title: 'Urban Hideout',
       date: '2025-10-14',
       img: 'img/projects/urban-hideout.webp',
@@ -78,6 +94,7 @@ window.WALIFE = {
     },
     {
       slug: 'elaborato-conclusivo-del-percorso-scolastico',
+      cats: ['school', 'vr'],
       title: { it: 'Elaborato conclusivo', en: 'Final School Project' },
       date: '2025-06-12',
       img: 'img/projects/elaborato-conclusivo.webp',
@@ -89,6 +106,7 @@ window.WALIFE = {
     },
     {
       slug: 'dragone7-identity',
+      cats: ['identity'],
       title: 'Dragone7 Identity',
       date: '2025-02-27',
       img: 'img/projects/dragone7-identity.webp',
@@ -100,6 +118,7 @@ window.WALIFE = {
     },
     {
       slug: 'cloud-paradise',
+      cats: ['vr'],
       title: 'Cloud Paradise',
       date: '2025-01-03',
       img: 'img/projects/cloud-paradise.webp',
@@ -120,6 +139,17 @@ window.WALIFE = {
 
   DICT: {
     it: {
+      pjDocTitle: 'Progetti – Walife',
+      pjDocDesc: 'Tutti i progetti di Walife: identità visive, poster per eventi, merch, mondi virtuali ed esperimenti.',
+      pjIdx: 'ARCHIVIO / TUTTI I LAVORI',
+      pjTitle: 'Tutti i <em>progetti.</em>',
+      pjLead: 'Identità, poster, merch, mondi virtuali ed esperimenti: l’archivio completo dei lavori di Walife.',
+      pjCount: '{n} progetti',
+      pjAll: 'Tutti',
+      pjGrid: 'Griglia', pjList: 'Lista',
+      pjEmpty: 'Nessun progetto in questa categoria.',
+      pjBack: '← Home',
+      pjFilterAria: 'Filtra per categoria', pjViewAria: 'Vista',
       docTitle: 'Walife – Graphic Designer',
       docDesc: 'Portfolio di Walife, graphic designer: identità visive, poster per eventi, merch e mondi virtuali.',
       navWork: 'Lavori', navArchive: 'Archivio', navServices: 'Servizi', navContact: 'Contatti',
@@ -163,6 +193,17 @@ window.WALIFE = {
       toTop: 'TORNA SU ↑'
     },
     en: {
+      pjDocTitle: 'Projects – Walife',
+      pjDocDesc: 'Every Walife project: visual identities, event posters, merch, virtual worlds and experiments.',
+      pjIdx: 'ARCHIVE / ALL WORK',
+      pjTitle: 'All <em>projects.</em>',
+      pjLead: 'Identities, posters, merch, virtual worlds and experiments: the complete archive of Walife’s work.',
+      pjCount: '{n} projects',
+      pjAll: 'All',
+      pjGrid: 'Grid', pjList: 'List',
+      pjEmpty: 'No projects in this category.',
+      pjBack: '← Home',
+      pjFilterAria: 'Filter by category', pjViewAria: 'View',
       docTitle: 'Walife – Graphic Designer',
       docDesc: 'Walife’s graphic design portfolio: visual identities, event posters, merch and virtual worlds.',
       navWork: 'Work', navArchive: 'Archive', navServices: 'Services', navContact: 'Contact',
