@@ -602,13 +602,13 @@ html.lenis, html.lenis body { height: auto; }
 .trail {
   position: absolute;
   z-index: 4;
-  width: 118px; height: 150px;
   pointer-events: none;
-  border: 1px solid rgba(255,255,255,.22);
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0,0,0,.5);
+  border-radius: 4px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.45);
   will-change: transform, opacity;
 }
+.trail.round { border-radius: 50%; }
 .hero-copy { will-change: transform, opacity; }
 
 /* click burst */

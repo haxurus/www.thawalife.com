@@ -611,24 +611,31 @@ void main(){
       if (e.target.closest('.hero-copy a, .hero-copy button')) return;
       const r = hero.getBoundingClientRect();
       const x = e.clientX - r.left, y = e.clientY - r.top;
-      if (tlx !== null) trailAcc += Math.hypot(x - tlx, y - tly);
+      let dx = 0, dy = 0;
+      if (tlx !== null) { dx = x - tlx; dy = y - tly; trailAcc += Math.hypot(dx, dy); }
       tlx = x; tly = y;
-      if (trailAcc < 130 || trailCount > 7) return;
+      if (trailAcc < 26 || trailCount > 28) return;
       trailAcc = 0;
+
+      /* small particle: a tiny crop of a project cover that drifts and fades */
+      const size = 22 + Math.random() * 28;
       const el = document.createElement('div');
-      el.className = 'trail';
+      el.className = 'trail' + (Math.random() < .5 ? ' round' : '');
       el.innerHTML = artHTML(PROJECTS[trailIdx++ % PROJECTS.length]);
-      el.style.left = (x - 59) + 'px';
-      el.style.top = (y - 75) + 'px';
+      el.style.width = el.style.height = size.toFixed(0) + 'px';
+      el.style.left = (x - size / 2 + (Math.random() - .5) * 14) + 'px';
+      el.style.top = (y - size / 2 + (Math.random() - .5) * 14) + 'px';
       hero.append(el);
       trailCount++;
-      const rot = (Math.random() - .5) * 18;
+
+      const rot = (Math.random() - .5) * 140;
+      const driftX = (Math.random() - .5) * 46 + dx * 1.4;
+      const driftY = 18 + Math.random() * 38 + dy * 1.4;
       el.animate([
-        { transform: `scale(.5) rotate(${rot * 2}deg)`, opacity: 0 },
-        { transform: `scale(1) rotate(${rot}deg)`, opacity: 1, offset: .22 },
-        { transform: `scale(1) rotate(${rot}deg)`, opacity: 1, offset: .62 },
-        { transform: `scale(.85) rotate(${rot}deg) translateY(-30px)`, opacity: 0 }
-      ], { duration: 1500, easing: 'cubic-bezier(.2,.7,.2,1)' }).finished
+        { transform: 'translate(0,0) scale(.2) rotate(0deg)', opacity: 0 },
+        { transform: `translate(${driftX * .15}px,${driftY * .1}px) scale(1) rotate(${rot * .2}deg)`, opacity: 1, offset: .15 },
+        { transform: `translate(${driftX}px,${driftY}px) scale(.1) rotate(${rot}deg)`, opacity: 0 }
+      ], { duration: 650 + Math.random() * 450, easing: 'cubic-bezier(.2,.6,.3,1)' }).finished
         .then(() => { el.remove(); trailCount--; }, () => { el.remove(); trailCount--; });
     });
     hero.addEventListener('pointerleave', () => { tlx = tly = null; });
