@@ -144,17 +144,30 @@
     return box;
   }
 
-  function renderYoutube(b) {
+  /* YouTube thumbnail: maxres when it exists (YouTube serves a 120px placeholder otherwise) */
+  function ytThumb(img, id) {
+    img.addEventListener('load', () => {
+      if (img.naturalWidth <= 120 && !img.dataset.fb) { img.dataset.fb = '1'; img.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; }
+    });
+    img.addEventListener('error', () => {
+      if (!img.dataset.fb) { img.dataset.fb = '1'; img.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; }
+    });
+    img.src = `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+  }
+
+  /* lazy YouTube player: thumbnail + play button, iframe only on click (no-cookie) */
+  function ytPlayer(id, vertical) {
     const box = document.createElement('div');
-    box.className = 'pg-media pg-yt pg-block';
+    box.className = 'pg-media pg-yt' + (vertical ? ' vertical' : '');
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.dataset.cursor = 'PLAY';
-    btn.innerHTML = `<img src="https://i.ytimg.com/vi/${b.id}/hqdefault.jpg" alt="" loading="lazy"><span class="play">▶ <b></b></span>`;
+    btn.innerHTML = '<img alt="" loading="lazy" decoding="async"><span class="play">▶ <b></b></span>';
+    ytThumb($('img', btn), id);
     textEls.push({ el: $('b', btn), key: 'pgPlay' });
     btn.addEventListener('click', () => {
       const f = document.createElement('iframe');
-      f.src = `https://www.youtube-nocookie.com/embed/${b.id}?autoplay=1&rel=0`;
+      f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
       f.title = 'YouTube video';
       f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
       f.allowFullscreen = true;
@@ -162,6 +175,34 @@
     });
     box.append(btn);
     return box;
+  }
+
+  function renderYoutube(b) {
+    const box = ytPlayer(b.id, b.vertical);
+    box.classList.add('pg-block');
+    return box;
+  }
+
+  /* grid of secondary videos; vertical ones (Shorts) get their own centered row */
+  function renderYtGrid(b) {
+    const wrap = document.createElement('div');
+    wrap.className = 'pg-ytgrid-wrap pg-block';
+    const grid = document.createElement('div');
+    grid.className = 'pg-ytgrid';
+    const shorts = document.createElement('div');
+    shorts.className = 'pg-ytgrid shorts';
+    b.items.forEach((it) => {
+      const card = document.createElement('figure');
+      card.className = 'pg-ytcard';
+      card.append(ytPlayer(it.id, it.vertical));
+      const cap = document.createElement('figcaption');
+      cap.textContent = it.title;
+      card.append(cap);
+      (it.vertical ? shorts : grid).append(card);
+    });
+    if (grid.children.length) wrap.append(grid);
+    if (shorts.children.length) wrap.append(shorts);
+    return wrap;
   }
 
   /* page-by-page viewer: cover alone, then spreads (desktop) or single pages (mobile) */
@@ -278,6 +319,7 @@
         case 'gallery': node = renderGallery(b); break;
         case 'video': node = renderVideo(b); break;
         case 'youtube': node = renderYoutube(b); break;
+        case 'ytgrid': node = renderYtGrid(b); break;
         case 'book': node = renderBook(b); break;
         default: break;
       }

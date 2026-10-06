@@ -15,11 +15,24 @@ window.WALIFE = {
     merch: { it: 'Merch', en: 'Merch' },
     vr: { it: 'Lavori VR', en: 'VR Integrated Works' },
     experiments: { it: 'Esperimenti', en: 'Experiments' },
-    school: { it: 'Progetti scolastici', en: 'School Projects' }
+    school: { it: 'Progetti scolastici', en: 'School Projects' },
+    motion: { it: 'Video edit', en: 'Video Edits' }
   },
 
   /* newest first. `img` = cover, `url` (optional) overrides the link */
   PROJECTS: [
+    {
+      slug: 'edits',
+      cats: ['motion', 'experiments'],
+      title: 'Edits',
+      date: '2026-10-07',
+      img: 'img/projects/edits.webp',
+      tags: { it: 'Video edit / After Effects', en: 'Video edits / After Effects' },
+      desc: {
+        it: 'Una raccolta di edit video realizzati in After Effects su personaggi di anime e videogiochi: Jujutsu Kaisen, Silent Hill 2 e Resident Evil 4.',
+        en: 'A collection of video edits made in After Effects about anime and video game characters: Jujutsu Kaisen, Silent Hill 2 and Resident Evil 4.'
+      }
+    },
     {
       slug: 'club-italia-flyers',
       cats: ['events', 'vr'],

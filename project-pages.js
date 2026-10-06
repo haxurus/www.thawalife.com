@@ -961,5 +961,99 @@ window.WALIFE.PAGES = {
         ]
       }
     ]
+  },
+  "edits": {
+    "links": [
+      {
+        "url": "https://www.youtube.com/@thaWalife",
+        "it": "Canale YouTube",
+        "en": "YouTube channel"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "p",
+        "it": "Una raccolta di edit video dedicati a personaggi di anime e videogiochi: Jujutsu Kaisen, Silent Hill 2 e Resident Evil 4. Ogni edit nasce dalla musica: tagli, transizioni ed effetti seguono il ritmo del brano per raccontare un personaggio in pochi secondi.",
+        "en": "A collection of video edits about anime and video game characters: Jujutsu Kaisen, Silent Hill 2 and Resident Evil 4. Every edit starts from the music: cuts, transitions and effects follow the track’s rhythm to tell a character’s story in a few seconds."
+      },
+      {
+        "type": "label",
+        "it": "Software utilizzati: After Effects",
+        "en": "Software: After Effects"
+      },
+      {
+        "type": "h",
+        "it": "Hiromi Higuruma – Domain Expansion",
+        "en": "Hiromi Higuruma – Domain Expansion"
+      },
+      {
+        "type": "p",
+        "it": "Edit su Hiromi Higuruma di Jujutsu Kaisen, costruito attorno alla sua Espansione del dominio: un montaggio serrato in bianco e nero che accompagna il giudizio del personaggio fino all’ultimo colpo.",
+        "en": "An edit about Hiromi Higuruma from Jujutsu Kaisen, built around his Domain Expansion: a tight black-and-white cut that follows the character’s judgment all the way to the final blow."
+      },
+      {
+        "type": "youtube",
+        "id": "pbYsQ5UtWS4"
+      },
+      {
+        "type": "h",
+        "it": "Toji Fushiguro – “A loser in the Zenin clan…”",
+        "en": "Toji Fushiguro – “A loser in the Zenin clan…”"
+      },
+      {
+        "type": "p",
+        "it": "Dedicato a Toji Fushiguro: dallo scarto del clan Zenin all’uomo più temuto dagli stregoni. Il ritmo cresce insieme alla tensione, fino al confronto finale.",
+        "en": "Dedicated to Toji Fushiguro: from the outcast of the Zenin clan to the man sorcerers fear the most. The rhythm builds with the tension, up to the final clash."
+      },
+      {
+        "type": "youtube",
+        "id": "ISTYdVXpEP8"
+      },
+      {
+        "type": "h",
+        "it": "Silent Hill 2 – “Could Mary really be here?”",
+        "en": "Silent Hill 2 – “Could Mary really be here?”"
+      },
+      {
+        "type": "p",
+        "it": "Un edit dall’atmosfera inquieta sul remake di Silent Hill 2: James alla ricerca di Mary tra nebbia e silenzi, con una tensione costruita soprattutto sul suono.",
+        "en": "An unsettling edit about the Silent Hill 2 remake: James searching for Mary through fog and silence, with tension built mostly on sound."
+      },
+      {
+        "type": "youtube",
+        "id": "cug9cf6yOVg"
+      },
+      {
+        "type": "h",
+        "it": "Altri edit",
+        "en": "More edits"
+      },
+      {
+        "type": "ytgrid",
+        "items": [
+          {
+            "id": "3IzrhriOIcs",
+            "title": "Silent Hill 2 – “She died ’cause she was sick…”"
+          },
+          {
+            "id": "oMOR1UU0XVk",
+            "title": "Yuta Okkotsu – The Executioner"
+          },
+          {
+            "id": "VD64-WpQfqk",
+            "title": "Silent Hill 2 Remake – James Sunderland, “I’m Ready”"
+          },
+          {
+            "id": "FO-v3BDvUEs",
+            "title": "Hiromi Higuruma – Jujutsu Kaisen"
+          },
+          {
+            "id": "E4doFsS02Wc",
+            "title": "Leon S. Kennedy – Resident Evil 4 Remake",
+            "vertical": true
+          }
+        ]
+      }
+    ]
   }
 };
