@@ -139,6 +139,16 @@ window.WALIFE = {
 
   DICT: {
     it: {
+      pgBack: '← Tutti i progetti',
+      pgIdx: 'PROGETTO {n} / {t}',
+      pgYear: 'Anno', pgCats: 'Categorie', pgLinks: 'Link',
+      pgNext: 'Prossimo progetto', pgPrev: 'Precedente',
+      pgNotFound: 'Progetto non trovato.', pgNotFoundLink: 'Vai all’archivio →',
+      pgPage: 'Pagina', pgOf: 'di',
+      pgPlay: 'Guarda il video', pgClose: 'Chiudi',
+      pgPrevImg: 'Immagine precedente', pgNextImg: 'Immagine successiva',
+      pgBookPrev: 'Pagina precedente', pgBookNext: 'Pagina successiva',
+      pgBookHint: 'Clicca una pagina per vederla a schermo intero',
       pjDocTitle: 'Progetti – Walife',
       pjDocDesc: 'Tutti i progetti di Walife: identità visive, poster per eventi, merch, mondi virtuali ed esperimenti.',
       pjIdx: 'ARCHIVIO / TUTTI I LAVORI',
@@ -193,6 +203,16 @@ window.WALIFE = {
       toTop: 'TORNA SU ↑'
     },
     en: {
+      pgBack: '← All projects',
+      pgIdx: 'PROJECT {n} / {t}',
+      pgYear: 'Year', pgCats: 'Categories', pgLinks: 'Links',
+      pgNext: 'Next project', pgPrev: 'Previous',
+      pgNotFound: 'Project not found.', pgNotFoundLink: 'Go to the archive →',
+      pgPage: 'Page', pgOf: 'of',
+      pgPlay: 'Watch the video', pgClose: 'Close',
+      pgPrevImg: 'Previous image', pgNextImg: 'Next image',
+      pgBookPrev: 'Previous page', pgBookNext: 'Next page',
+      pgBookHint: 'Click a page to view it full screen',
       pjDocTitle: 'Projects – Walife',
       pjDocDesc: 'Every Walife project: visual identities, event posters, merch, virtual worlds and experiments.',
       pjIdx: 'ARCHIVE / ALL WORK',
