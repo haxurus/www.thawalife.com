@@ -130,6 +130,54 @@ window.WALIFE = {
     }
   ],
 
+  /* ----------------------------------------------------------
+     ABOUT PAGE (about.html)
+     levels: 'adv' = Avanzato / Advanced, 'int' = Intermedio / Intermediate
+     Education / experience: replace the placeholder entries.
+     ---------------------------------------------------------- */
+  ABOUT: {
+    photo: 'img/walife.webp',
+    photoFallback: 'img/logo.webp',
+    tools: [
+      { abbr: 'Ai', name: 'Adobe Illustrator', level: 'adv', fg: '#FF9A00', bg: '#330000' },
+      { abbr: 'Ps', name: 'Adobe Photoshop', level: 'adv', fg: '#31A8FF', bg: '#001E36' },
+      { abbr: 'Id', name: 'Adobe InDesign', level: 'adv', fg: '#FF3366', bg: '#49021F' },
+      { abbr: 'Ae', name: 'Adobe After Effects', level: 'adv', fg: '#9999FF', bg: '#00005B' },
+      { abbr: 'Lr', name: 'Adobe Lightroom', level: 'int', fg: '#31A8FF', bg: '#001E36' },
+      { abbr: 'Pr', name: 'Adobe Premiere Pro', level: 'int', fg: '#9999FF', bg: '#00005B' },
+      { abbr: 'Pt', name: 'Substance 3D Painter', level: 'int', fg: '#FF4B5C', bg: '#250A0D' },
+      { abbr: 'Dr', name: 'DaVinci Resolve', level: 'int', fg: '#FFD25A', bg: '#1E1A12' },
+      { abbr: 'Bl', name: 'Blender', level: 'int', fg: '#F5792A', bg: '#16222F' },
+      { abbr: 'U', name: 'Unity', level: 'int', fg: '#FFFFFF', bg: '#1A1A1A' }
+    ],
+    education: [
+      {
+        years: '20XX – 20XX',
+        title: { it: 'Diploma di Tecnico Grafico', en: 'Diploma in Graphic Design' },
+        place: { it: 'Nome dell’istituto, città', en: 'School name, city' }
+      },
+      {
+        years: '20XX – 20XX',
+        title: { it: 'Titolo del corso', en: 'Course title' },
+        place: { it: 'Nome della scuola, città', en: 'School name, city' }
+      }
+    ],
+    experience: [
+      {
+        years: '20XX',
+        title: { it: 'Stage – Ruolo', en: 'Internship – Role' },
+        place: { it: 'Nome dell’azienda, città', en: 'Company name, city' },
+        desc: { it: 'Breve descrizione delle attività svolte.', en: 'Short description of the activities.' }
+      },
+      {
+        years: '20XX',
+        title: { it: 'Stage – Ruolo', en: 'Internship – Role' },
+        place: { it: 'Nome dell’azienda, città', en: 'Company name, city' },
+        desc: { it: 'Breve descrizione delle attività svolte.', en: 'Short description of the activities.' }
+      }
+    ]
+  },
+
   SOCIALS: [
     { name: 'Discord', handle: 'thawalife', url: 'https://discord.com/users/139710182526550016' },
     { name: 'Email', handle: 'thawalife@gmail.com', url: 'mailto:thawalife@gmail.com' },
@@ -139,6 +187,20 @@ window.WALIFE = {
 
   DICT: {
     it: {
+      navAbout: 'Chi sono',
+      abDocTitle: 'Chi sono – Walife',
+      abDocDesc: 'Federico, graphic designer: brand identity, ambienti e oggetti 3D, asset per social media ed eventi.',
+      abIdx: 'CHI SONO',
+      abTitle: 'Ciao, sono <em>Federico.</em>',
+      abBio: 'Ho 21 anni, vivo in Italia e sono diplomato come tecnico grafico. Sviluppo brand identity, ambienti e oggetti 3D, asset per social media ed eventi, trasformando idee e concept in progetti concreti e riconoscibili.',
+      abBio2: 'Il mio approccio unisce estetica e funzionalità: credo in un design pulito, coerente e capace di dare a ogni lavoro un carattere forte e memorabile.',
+      abF1: '21 anni', abF2: 'Italia', abF3: 'Tecnico grafico',
+      abToolsIdx: 'SOFTWARE', abToolsTitle: 'I miei <em>strumenti.</em>',
+      abLvAdv: 'Avanzato', abLvInt: 'Intermedio', abLvBase: 'Base',
+      abEduIdx: 'FORMAZIONE', abEduTitle: 'Education',
+      abExpIdx: 'ESPERIENZE', abExpTitle: 'Experience',
+      abCtIdx: 'CONTATTI', abCtTitle: 'Scrivimi, rispondo volentieri.',
+      abWork: 'Guarda i lavori ↗',
       pgBack: '← Tutti i progetti',
       pgIdx: 'PROGETTO {n} / {t}',
       pgYear: 'Anno', pgCats: 'Categorie', pgLinks: 'Link',
@@ -153,7 +215,7 @@ window.WALIFE = {
       pjDocDesc: 'Tutti i progetti di Walife: identità visive, poster per eventi, merch, mondi virtuali ed esperimenti.',
       pjIdx: 'ARCHIVIO / TUTTI I LAVORI',
       pjTitle: 'Tutti i <em>progetti.</em>',
-      pjLead: 'Identità, poster, merch, mondi virtuali ed esperimenti: l’archivio completo dei lavori di Walife.',
+      pjLead: 'Tutti i lavori, gli esperimenti e i progetti in un unico posto. Questo è l’archivio completo.',
       pjCount: '{n} progetti',
       pjAll: 'Tutti',
       pjGrid: 'Griglia', pjList: 'Lista',
@@ -169,14 +231,13 @@ window.WALIFE = {
       h1a: 'Idee trasformate',
       h1b: 'in',
       rot: ['immagini.', 'brand.', 'poster.', 'identità.', 'mondi.'],
-      heroText: 'Creo identità visive, grafiche per eventi e mondi virtuali, pensati per essere riconoscibili, coerenti e memorabili.',
+      heroText: 'Progetto identità visive, materiali promozionali e ambienti 3D, trasformando le idee in progetti unici e riconoscibili.',
       ctaWork: 'Guarda i lavori', ctaProject: 'Inizia un progetto',
       heroNote: 'Trascina il badge. Clicca per girarlo.',
       scroll: 'SCORRI',
       badgeTop: 'WALIFE / PORTFOLIO', badgeKicker: 'PORTFOLIO 2026', badgeRole: 'GRAPHIC DESIGNER',
-      badgeBackKicker: 'INFO & CONTATTI', badgeBackTitle: 'Design con<br>carattere.',
-      badgeBio: 'Identità, poster, merch e mondi virtuali per community, club e streamer.',
-      badgeWith: 'HO LAVORATO PER',
+      badgeBackKicker: 'INFO & CONTATTI', badgeBackTitle: 'CHANNELS',
+      badgeWith: 'PROGETTI CONDIVISI CON',
       badgeFlipHint: 'CLICCA PER TORNARE',
       badgeBottom: 'PS · AI · BLENDER · UNITY',
       pill: 'TRASCINA / GIRA',
@@ -186,23 +247,37 @@ window.WALIFE = {
       cfOpen: 'Apri progetto',
       arIdx: '03 / L’ARCHIVIO',
       arTitle: 'Questa è solo <em>la superficie.</em>',
-      arCopy: 'Quello che hai visto è una breve selezione. Ogni identità, poster, merch ed esperimento vive nell’archivio completo.',
+      arCopy: 'Qui si chiude la selezione principale. Tutto il resto dei lavori e degli esperimenti ti aspetta nell’archivio completo.',
       arOrb: 'TUTTI I PROGETTI ✦ TUTTI I PROGETTI ✦ TUTTI I PROGETTI ✦ ',
       arAria: 'Vedi tutti i progetti',
       svcIdx: '04 / SERVIZI',
       svcTitle: 'Cosa progetto.',
-      s1t: 'Brand Identity', s1p: 'Loghi, linguaggi visivi, sistemi di brand e linee guida.',
-      s2t: 'Digital Design', s2p: 'Asset social, campagne, grafiche web ed esperienze digitali.',
-      s3t: 'Editorial & Print', s3p: 'Poster, impaginazioni, pubblicazioni e comunicazione fisica.',
+      s1t: 'Brand Identity', s1p: 'Loghi, linguaggi visivi, brand communication e linee guida.',
+      s2t: 'Digital Design', s2p: 'Asset social, campagne e grafiche web.',
+      s3t: 'Editorial & Print', s3p: 'Poster, impaginazioni, pubblicazioni ed elaborati destinati alla stampa.',
       s4t: '3D Modeling & Environment Art', s4p: 'Modelli 3D, props e ambienti renderizzati.',
       ctIdx: '05 / CONTATTI',
       ctLead: 'Hai un progetto in mente?',
-      ctLink: 'Facciamolo visivo.',
-      ctFooter: 'WALIFE / PORTFOLIO DI GRAPHIC DESIGN',
+      ctLink: 'Parliamone insieme.',
+      ctFooter: 'WALIFE PORTFOLIO',
       ctTime: 'ORA LOCALE',
       toTop: 'TORNA SU ↑'
     },
     en: {
+      navAbout: 'About',
+      abDocTitle: 'About – Walife',
+      abDocDesc: 'Federico, graphic designer: brand identity, 3D environments and objects, assets for social media and events.',
+      abIdx: 'ABOUT ME',
+      abTitle: 'Hi, I’m <em>Federico.</em>',
+      abBio: 'I’m 21, I live in Italy and I hold a diploma as a graphic technician. I develop brand identities, 3D environments and objects, assets for social media and events, turning ideas and concepts into concrete, recognizable projects.',
+      abBio2: 'My approach combines aesthetics and functionality: I believe in clean, coherent design that gives every project a strong, memorable character.',
+      abF1: '21 years old', abF2: 'Italy', abF3: 'Graphic technician',
+      abToolsIdx: 'SOFTWARE', abToolsTitle: 'My <em>tools.</em>',
+      abLvAdv: 'Advanced', abLvInt: 'Intermediate', abLvBase: 'Basic',
+      abEduIdx: 'EDUCATION', abEduTitle: 'Education',
+      abExpIdx: 'EXPERIENCE', abExpTitle: 'Experience',
+      abCtIdx: 'CONTACT', abCtTitle: 'Write to me, I’m happy to reply.',
+      abWork: 'See the work ↗',
       pgBack: '← All projects',
       pgIdx: 'PROJECT {n} / {t}',
       pgYear: 'Year', pgCats: 'Categories', pgLinks: 'Links',
@@ -217,7 +292,7 @@ window.WALIFE = {
       pjDocDesc: 'Every Walife project: visual identities, event posters, merch, virtual worlds and experiments.',
       pjIdx: 'ARCHIVE / ALL WORK',
       pjTitle: 'All <em>projects.</em>',
-      pjLead: 'Identities, posters, merch, virtual worlds and experiments: the complete archive of Walife’s work.',
+      pjLead: 'All the work, experiments and projects in one place. This is the complete archive.',
       pjCount: '{n} projects',
       pjAll: 'All',
       pjGrid: 'Grid', pjList: 'List',
@@ -233,14 +308,13 @@ window.WALIFE = {
       h1a: 'Ideas shaped',
       h1b: 'into',
       rot: ['visuals.', 'brands.', 'posters.', 'identities.', 'worlds.'],
-      heroText: 'I create visual identities, event graphics and virtual worlds built to be recognizable, coherent and memorable.',
+      heroText: 'I design visual identities, promotional materials and 3D environments, turning ideas into unique, recognizable projects.',
       ctaWork: 'View selected work', ctaProject: 'Start a project',
       heroNote: 'Drag the badge. Click to flip.',
       scroll: 'SCROLL',
       badgeTop: 'WALIFE / PORTFOLIO', badgeKicker: 'PORTFOLIO 2026', badgeRole: 'GRAPHIC DESIGNER',
-      badgeBackKicker: 'INFO & CONTACTS', badgeBackTitle: 'Design with<br>character.',
-      badgeBio: 'Identities, posters, merch and virtual worlds for communities, clubs and streamers.',
-      badgeWith: 'WORKED FOR',
+      badgeBackKicker: 'INFO & CONTACTS', badgeBackTitle: 'CHANNELS',
+      badgeWith: 'SHARED PROJECTS WITH',
       badgeFlipHint: 'CLICK TO FLIP BACK',
       badgeBottom: 'PS · AI · BLENDER · UNITY',
       pill: 'DRAG / FLIP',
@@ -250,19 +324,19 @@ window.WALIFE = {
       cfOpen: 'Open project',
       arIdx: '03 / THE ARCHIVE',
       arTitle: 'This is only <em>the surface.</em>',
-      arCopy: 'What you’ve seen is a short selection. Every identity, poster, merch piece and experiment lives in the full archive.',
+      arCopy: 'This is where the main selection ends. The rest of the work and experiments is waiting for you in the full archive.',
       arOrb: 'SEE ALL PROJECTS ✦ SEE ALL PROJECTS ✦ SEE ALL PROJECTS ✦ ',
       arAria: 'See all projects',
       svcIdx: '04 / SERVICES',
       svcTitle: 'What I design.',
-      s1t: 'Brand Identity', s1p: 'Logos, visual languages, brand systems and guidelines.',
-      s2t: 'Digital Design', s2p: 'Social assets, campaigns, web visuals and digital experiences.',
-      s3t: 'Editorial & Print', s3p: 'Posters, layouts, publications and physical communication.',
+      s1t: 'Brand Identity', s1p: 'Logos, visual languages, brand communication and guidelines.',
+      s2t: 'Digital Design', s2p: 'Social assets, campaigns and web visuals.',
+      s3t: 'Editorial & Print', s3p: 'Posters, layouts, publications and print-ready materials.',
       s4t: '3D Modeling & Environment Art', s4p: '3D models, props, and rendered environments',
       ctIdx: '05 / CONTACT',
       ctLead: 'Have a project in mind?',
-      ctLink: 'Let’s make it visual.',
-      ctFooter: 'WALIFE / GRAPHIC DESIGN PORTFOLIO',
+      ctLink: 'Let’s talk it through.',
+      ctFooter: 'WALIFE PORTFOLIO',
       ctTime: 'LOCAL TIME',
       toTop: 'BACK TO TOP ↑'
     }

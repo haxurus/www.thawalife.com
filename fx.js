@@ -766,9 +766,13 @@ void main(){
     });
 
     // hero parallax
-    if (y < innerHeight * 1.2) {
+    /* only side-by-side layout: on phones the copy sits above the badge and would slide over it */
+    if (innerWidth > 980 && y < innerHeight * 1.2) {
       heroCopy.style.transform = `translate3d(0,${(y * .16).toFixed(1)}px,0)`;
       heroCopy.style.opacity = clamp(1 - y / (innerHeight * .85), 0, 1).toFixed(3);
+    } else if (innerWidth <= 980 && heroCopy.style.transform) {
+      heroCopy.style.transform = '';
+      heroCopy.style.opacity = '';
     }
 
     // shader background

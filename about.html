@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080808">
-  <meta name="description" content="Progetto di Walife, graphic designer.">
-  <meta property="og:type" content="article">
-  <title>Progetto – Walife</title>
+  <meta name="description" content="Federico, graphic designer: brand identity, ambienti e oggetti 3D, asset per social media ed eventi.">
+  <meta property="og:title" content="Chi sono – Walife">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://www.walife.me/about.html">
+  <title>Chi sono – Walife</title>
   <link rel="icon" type="image/png" href="./img/favicon.png">
   <link rel="apple-touch-icon" href="./img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,9 +19,9 @@
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./home.css">
   <link rel="stylesheet" href="./projects.css">
-  <link rel="stylesheet" href="./project.css">
+  <link rel="stylesheet" href="./about.css">
 </head>
-<body class="page-projects page-project">
+<body class="page-projects page-about">
   <!-- Intro loader -->
   <div class="loader" id="loader" aria-hidden="true">
     <div class="loader-logo">
@@ -42,8 +44,8 @@
 
     <nav class="site-nav" aria-label="Primary navigation">
       <a href="./index.html#work" data-i18n="navWork">Lavori</a>
-      <a href="./projects.html" class="active" data-i18n="navArchive">Archivio</a>
-      <a href="./about.html" data-i18n="navAbout">Chi sono</a>
+      <a href="./projects.html" data-i18n="navArchive">Archivio</a>
+      <a href="./about.html" class="active" aria-current="page" data-i18n="navAbout">Chi sono</a>
       <a href="./index.html#services" data-i18n="navServices">Servizi</a>
       <a href="#contact" data-i18n="navContact">Contatti</a>
     </nav>
@@ -66,53 +68,70 @@
 
   <main>
     <!-- INTRO -->
-    <section class="pj-hero pg-hero">
+    <section class="pj-hero ab-hero">
       <div class="pj-hero-glow" aria-hidden="true"></div>
-      <a class="pj-back" href="./projects.html" data-i18n="pgBack">← Tutti i progetti</a>
-      <p class="section-index pj-in" id="pg-idx"></p>
-      <h1 class="pj-title pg-title"><span class="pj-line"><span id="pg-title"></span></span></h1>
-      <dl class="pg-meta pj-in" id="pg-meta"></dl>
+      <div class="ab-intro">
+        <div class="ab-copy">
+          <p class="section-index pj-in" data-i18n="abIdx">CHI SONO</p>
+          <h1 class="pj-title ab-title"><span class="pj-line"><span data-i18n="abTitle">Ciao, sono <em>Federico.</em></span></span></h1>
+          <p class="ab-bio pj-in" data-i18n="abBio"></p>
+          <p class="ab-bio2 pj-in" data-i18n="abBio2"></p>
+          <ul class="ab-facts pj-in">
+            <li data-i18n="abF1">21 anni</li>
+            <li data-i18n="abF2">Italia</li>
+            <li data-i18n="abF3">Tecnico grafico</li>
+          </ul>
+        </div>
+        <figure class="ab-photo pj-in">
+          <img id="ab-photo" alt="Federico – Walife" width="520" height="520">
+          <figcaption>WALIFE · GRAPHIC DESIGNER</figcaption>
+        </figure>
+      </div>
     </section>
 
-    <!-- COVER -->
-    <figure class="pg-cover" id="pg-cover-wrap">
-      <img id="pg-cover" alt="" decoding="async">
-    </figure>
+    <!-- SOFTWARE -->
+    <section class="ab-section ab-tools">
+      <div class="ab-head">
+        <p class="section-index" data-i18n="abToolsIdx">SOFTWARE</p>
+        <h2 class="ab-h2" data-i18n="abToolsTitle">I miei <em>strumenti.</em></h2>
+        <div class="ab-legend" id="ab-legend"></div>
+      </div>
+      <ul class="ab-tool-grid" id="ab-tools"></ul>
+    </section>
 
-    <!-- CONTENT -->
-    <article class="pg-body" id="pg-body"></article>
-
-    <!-- PREV / NEXT -->
-    <nav class="pg-nav" id="pg-nav" aria-label="Project navigation"></nav>
+    <!-- EDUCATION + EXPERIENCE -->
+    <section class="ab-section ab-cv">
+      <div class="ab-col">
+        <p class="section-index" data-i18n="abEduIdx">FORMAZIONE</p>
+        <h2 class="ab-h2" data-i18n="abEduTitle">Education</h2>
+        <ol class="ab-timeline" id="ab-edu"></ol>
+      </div>
+      <div class="ab-col">
+        <p class="section-index" data-i18n="abExpIdx">ESPERIENZE</p>
+        <h2 class="ab-h2" data-i18n="abExpTitle">Experience</h2>
+        <ol class="ab-timeline" id="ab-exp"></ol>
+      </div>
+    </section>
 
     <!-- CONTACT -->
     <section class="contact" id="contact">
-      <p class="section-index" data-i18n="ctLead">Hai un progetto in mente?</p>
+      <p class="section-index" data-i18n="abCtIdx">CONTATTI</p>
+      <p class="ab-ct-lead" data-i18n="abCtTitle"></p>
       <div class="contact-main">
-        <a class="magnetic" href="mailto:thawalife@gmail.com" data-cursor="WRITE"><span data-i18n="ctLink">Parliamone insieme.</span><span class="arrow">↗</span></a>
+        <a class="magnetic" href="mailto:thawalife@gmail.com" data-cursor="WRITE"><span>thawalife@gmail.com</span><span class="arrow">↗</span></a>
       </div>
       <ul class="socials" id="socials"></ul>
       <div class="contact-footer">
         <span data-i18n="ctFooter">WALIFE PORTFOLIO</span>
-        <a href="#" class="to-top" id="to-top" data-i18n="toTop">TORNA SU ↑</a>
+        <a href="./projects.html" class="to-top" data-i18n="abWork">Guarda i lavori ↗</a>
         <span>© <span id="year"></span></span>
       </div>
     </section>
   </main>
 
-  <!-- LIGHTBOX -->
-  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-hidden="true">
-    <button class="lb-close" id="lb-close" type="button" data-i18n-aria="pgClose" aria-label="Chiudi">✕</button>
-    <button class="lb-arrow lb-prev" id="lb-prev" type="button" data-i18n-aria="pgPrevImg" aria-label="Immagine precedente">←</button>
-    <figure class="lb-stage"><img id="lb-img" alt=""></figure>
-    <button class="lb-arrow lb-next" id="lb-next" type="button" data-i18n-aria="pgNextImg" aria-label="Immagine successiva">→</button>
-    <span class="lb-count" id="lb-count"></span>
-  </div>
-
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="./loader.js"></script>
   <script src="./data.js"></script>
-  <script src="./project-pages.js"></script>
-  <script src="./project.js"></script>
+  <script src="./about.js"></script>
 </body>
 </html>
