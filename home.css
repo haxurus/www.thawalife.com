@@ -436,14 +436,13 @@ body.loading { overflow: hidden; }
   aspect-ratio: 4 / 3;
   border: 1px solid var(--line);
   overflow: hidden;
-  opacity: .6;
 }
 .ar-tile.wide { aspect-ratio: 16 / 10; }
 .ar-shade {
   position: absolute; inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 60% 55% at 50% 50%, rgba(8,8,8,.94) 0 35%, rgba(8,8,8,.55) 75%, rgba(8,8,8,.2));
+    radial-gradient(ellipse 44% 40% at 50% 50%, rgba(8,8,8,.92) 0 38%, rgba(8,8,8,.6) 68%, rgba(8,8,8,0) 100%);
 }
 .ar-cta {
   position: relative;

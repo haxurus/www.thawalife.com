@@ -133,7 +133,7 @@ window.WALIFE = {
   /* ----------------------------------------------------------
      ABOUT PAGE (about.html)
      levels: 'adv' = Avanzato / Advanced, 'int' = Intermedio / Intermediate
-     Education / experience: replace the placeholder entries.
+     Education / experience: most recent first.
      ---------------------------------------------------------- */
   ABOUT: {
     photo: 'img/walife.webp',
@@ -152,28 +152,34 @@ window.WALIFE = {
     ],
     education: [
       {
-        years: '20XX – 20XX',
-        title: { it: 'Diploma di Tecnico Grafico', en: 'Diploma in Graphic Design' },
-        place: { it: 'Nome dell’istituto, città', en: 'School name, city' }
+        years: '2026',
+        title: { it: 'Corso IFTS – Tecniche delle elaborazioni multimediali e animazione 3D', en: 'IFTS course – Multimedia processing and 3D animation techniques' },
+        place: { it: 'CFP Canossa, Lodi', en: 'CFP Canossa, Lodi' }
       },
       {
-        years: '20XX – 20XX',
-        title: { it: 'Titolo del corso', en: 'Course title' },
-        place: { it: 'Nome della scuola, città', en: 'School name, city' }
+        years: '2025',
+        title: { it: 'Diploma di Tecnico Grafico', en: 'Diploma as Graphic Technician' },
+        place: { it: 'CFP ASFOL, Casalpusterlengo (LO)', en: 'CFP ASFOL, Casalpusterlengo (LO)' }
       }
     ],
     experience: [
       {
-        years: '20XX',
-        title: { it: 'Stage – Ruolo', en: 'Internship – Role' },
-        place: { it: 'Nome dell’azienda, città', en: 'Company name, city' },
-        desc: { it: 'Breve descrizione delle attività svolte.', en: 'Short description of the activities.' }
+        years: '2026',
+        title: { it: 'Stage – Youth S.r.l.', en: 'Internship – Youth S.r.l.' },
+        place: { it: 'Milano (MI)', en: 'Milan (MI)' },
+        desc: {
+          it: 'Modellazione 3D e progettazione di ambienti e architetture virtuali. Attività di fashion e graphic design per l’ideazione di collezioni d’abbigliamento, sviluppo di asset 3D digitali e supporto alla definizione di strategie di brand marketing su piattaforme digitali.',
+          en: '3D modeling and design of virtual environments and architecture. Fashion and graphic design work on clothing collections, development of digital 3D assets and support in defining brand marketing strategies on digital platforms.'
+        }
       },
       {
-        years: '20XX',
-        title: { it: 'Stage – Ruolo', en: 'Internship – Role' },
-        place: { it: 'Nome dell’azienda, città', en: 'Company name, city' },
-        desc: { it: 'Breve descrizione delle attività svolte.', en: 'Short description of the activities.' }
+        years: '2023 – 2025',
+        title: { it: 'Stage – ARS Tipolitografia', en: 'Internship – ARS Tipolitografia' },
+        place: { it: 'Casalpusterlengo (LO)', en: 'Casalpusterlengo (LO)' },
+        desc: {
+          it: 'Supporto alla produzione tipografica e realizzazione di materiali coordinati e per stampa offset. Attività di preparazione esecutivi di stampa, creazione loghi, impaginazione di manuali, brochure e pieghevoli.',
+          en: 'Support for print production and creation of coordinated materials for offset printing. Preparation of print-ready files, logo design and layout of manuals, brochures and leaflets.'
+        }
       }
     ]
   },
