@@ -330,8 +330,8 @@
   restagger();
   requestAnimationFrame(tick);
 
-  /* boot with a timer (not rAF) so it also runs in background tabs */
-  setTimeout(() => {
+  /* intro loader (loader.js), then start the reveals */
+  window.walifeLoader(() => {
     document.body.classList.add('ready');
     initReveal();
 
@@ -340,8 +340,10 @@
     const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
     if (target && target.classList.contains('pj-card')) {
       target.classList.add('in', 'flash');
-      target.scrollIntoView({ block: 'start' });
+      const off = -((parseInt(getComputedStyle(document.body).getPropertyValue('--hdr'), 10) || 92) + 84);
+      if (lenis) { lenis.resize(); lenis.scrollTo(target, { offset: off, immediate: true }); }
+      else target.scrollIntoView({ block: 'start' });
       setTimeout(() => target.classList.remove('flash'), 2600);
     }
-  }, 30);
+  });
 })();

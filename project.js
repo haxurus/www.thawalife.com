@@ -512,9 +512,9 @@
   }
   requestAnimationFrame(tick);
 
-  /* boot with a timer (not rAF) so it also runs in background tabs */
-  setTimeout(() => {
+  /* intro loader (loader.js), then start the reveals */
+  window.walifeLoader(() => {
     document.body.classList.add('ready');
     initReveal();
-  }, 30);
+  });
 })();
