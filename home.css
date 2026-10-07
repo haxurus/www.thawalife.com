@@ -442,7 +442,7 @@ body.loading { overflow: hidden; }
   position: absolute; inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 44% 40% at 50% 50%, rgba(8,8,8,.92) 0 38%, rgba(8,8,8,.6) 68%, rgba(8,8,8,0) 100%);
+    none;
 }
 .ar-cta {
   position: relative;
@@ -454,6 +454,22 @@ body.loading { overflow: hidden; }
   justify-content: center;
   text-align: center;
   padding: 0 24px;
+}
+.ar-cta > *:not(.orb) { position: relative; }
+.ar-cta::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: min(1180px, calc(100% - 32px));
+  height: min(640px, 80%);
+  translate: -50% -50%;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(8,8,8,.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 40px 100px rgba(0,0,0,.55);
+  pointer-events: none;
 }
 .ar-cta h2 {
   margin: 0;

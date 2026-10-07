@@ -29,8 +29,8 @@ window.WALIFE = {
       img: 'img/projects/edits.webp',
       tags: { it: 'Video edit / After Effects', en: 'Video edits / After Effects' },
       desc: {
-        it: 'Una raccolta di edit video realizzati in After Effects su personaggi di anime e videogiochi: Jujutsu Kaisen, Silent Hill 2 e Resident Evil 4.',
-        en: 'A collection of video edits made in After Effects about anime and video game characters: Jujutsu Kaisen, Silent Hill 2 and Resident Evil 4.'
+        it: 'Un’immersione nella manipolazione video, negli effetti e negli studi sul movimento.',
+        en: 'A deep dive into video manipulation, effects, and motion studies.'
       }
     },
     {
