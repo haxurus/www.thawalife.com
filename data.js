@@ -13,7 +13,7 @@ window.WALIFE = {
     identity: { it: 'Identità', en: 'Identity' },
     events: { it: 'Eventi', en: 'Events' },
     merch: { it: 'Merch', en: 'Merch' },
-    vr: { it: 'Lavori VR', en: 'VR Integrated Works' },
+    vr: { it: 'VR Integrated Works', en: 'VR Integrated Works' },
     experiments: { it: 'Esperimenti', en: 'Experiments' },
     school: { it: 'Progetti scolastici', en: 'School Projects' },
     motion: { it: 'Video edit', en: 'Video Edits' }
@@ -39,7 +39,7 @@ window.WALIFE = {
       title: 'Club Italia flyers',
       date: '2026-10-01',
       img: 'img/projects/club-italia-flyers.webp',
-      tags: { it: 'Eventi / Lavori VR', en: 'Events / VR Integrated Works' },
+      tags: { it: 'Eventi / VR Integrated Works', en: 'Events / VR Integrated Works' },
       desc: {
         it: 'Una serie di poster per gli eventi musicali della community Club Italia in VRChat, affiancati da progetti di comunicazione e identità del gruppo.',
         en: 'A series of posters for the Club Italia community’s music events in VRChat, alongside pieces focused on the group’s communication and identity.'
@@ -99,7 +99,7 @@ window.WALIFE = {
       title: 'Urban Hideout',
       date: '2025-10-14',
       img: 'img/projects/urban-hideout.webp',
-      tags: { it: 'Esperimenti / Lavori VR', en: 'Experiments / VR Integrated Works' },
+      tags: { it: 'Esperimenti / VR Integrated Works', en: 'Experiments / VR Integrated Works' },
       desc: {
         it: 'Un esperimento creativo personale: un appartamento rimasto fermo nel tempo mentre il mondo esterno è andato avanti. Photoshop, Illustrator, Blender e Unity.',
         en: 'A personal creative experiment: an apartment frozen in time while the outside world moved on. Built with Photoshop, Illustrator, Blender and Unity.'
@@ -111,7 +111,7 @@ window.WALIFE = {
       title: { it: 'Elaborato conclusivo', en: 'Final School Project' },
       date: '2025-06-12',
       img: 'img/projects/elaborato-conclusivo.webp',
-      tags: { it: 'Progetti scolastici / Lavori VR', en: 'School Projects / VR Integrated Works' },
+      tags: { it: 'Progetti scolastici / VR Integrated Works', en: 'School Projects / VR Integrated Works' },
       desc: {
         it: 'L’elaborato conclusivo del percorso scolastico: un progetto grafico completo di 62 pagine.',
         en: 'The final project of my school path: a complete 62-page graphic work.'
@@ -251,7 +251,7 @@ window.WALIFE = {
       h1b: 'in',
       rot: ['immagini.', 'brand.', 'poster.', 'identità.', 'mondi.'],
       heroText: 'Progetto identità visive, materiali promozionali e ambienti 3D, trasformando le idee in progetti unici e riconoscibili.',
-      ctaWork: 'Guarda i lavori', ctaProject: 'Inizia un progetto',
+      ctaWork: 'Guarda i lavori', ctaProject: 'Chi sono',
       heroNote: 'Trascina il badge. Clicca per girarlo.',
       scroll: 'SCORRI',
       badgeTop: 'WALIFE / PORTFOLIO', badgeKicker: 'PORTFOLIO 2026', badgeRole: 'GRAPHIC DESIGNER',
@@ -328,7 +328,7 @@ window.WALIFE = {
       h1b: 'into',
       rot: ['visuals.', 'brands.', 'posters.', 'identities.', 'worlds.'],
       heroText: 'I design visual identities, promotional materials and 3D environments, turning ideas into unique, recognizable projects.',
-      ctaWork: 'View selected work', ctaProject: 'Start a project',
+      ctaWork: 'View selected work', ctaProject: 'About me',
       heroNote: 'Drag the badge. Click to flip.',
       scroll: 'SCROLL',
       badgeTop: 'WALIFE / PORTFOLIO', badgeKicker: 'PORTFOLIO 2026', badgeRole: 'GRAPHIC DESIGNER',

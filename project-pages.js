@@ -96,8 +96,8 @@ window.WALIFE.PAGES = {
     "blocks": [
       {
         "type": "p",
-        "it": "The Tower è un club internazionale nato nella realtà virtuale. Con una programmazione bimestrale, quattro DJ e VJ a rotazione per ogni evento e collaborazioni con altri collettivi internazionali, crea esperienze uniche. Il mio ruolo è stato tradurre l’identità misteriosa e in continuo mutamento del locale in una linea di merchandising che riflettesse la sua complessa mitologia.",
-        "en": "The Tower is an international club born in virtual reality. Featuring a bi-monthly program with four rotating DJs and VJs per event, the club collaborates with other international collectives to create unique experiences. My role was to translate the venue’s mysterious and ever-changing identity into a merchandise line that reflects its complex mythology."
+        "it": "The Tower è un club internazionale nato nella realtà virtuale. Con una programmazione bisettimanale, quattro DJ e VJ a rotazione per ogni evento e collaborazioni con altri collettivi internazionali, crea esperienze uniche. Il mio ruolo è stato tradurre l’identità misteriosa e in continuo mutamento del locale in una linea di merchandising che riflettesse la sua complessa mitologia.",
+        "en": "The Tower is an international club born in virtual reality. Featuring a bi-weekly program with four rotating DJs and VJs per event, the club collaborates with other international collectives to create unique experiences. My role was to translate the venue’s mysterious and ever-changing identity into a merchandise line that reflects its complex mythology."
       },
       {
         "type": "gallery",
@@ -1001,12 +1001,12 @@ window.WALIFE.PAGES = {
       },
       {
         "type": "h",
-        "it": "Silent Hill 2 – “Could Mary really be here?”",
-        "en": "Silent Hill 2 – “Could Mary really be here?”"
+        "it": "The Price of a Miracle — Code Geass Edit",
+        "en": "The Price of a Miracle — Code Geass Edit"
       },
       {
         "type": "youtube",
-        "id": "cug9cf6yOVg"
+        "id": "5jSXj0SQZP0"
       },
       {
         "type": "h",
@@ -1016,6 +1016,10 @@ window.WALIFE.PAGES = {
       {
         "type": "ytgrid",
         "items": [
+          {
+            "id": "cug9cf6yOVg",
+            "title": "Silent Hill 2 – “Could Mary really be here?”"
+          },
           {
             "id": "3IzrhriOIcs",
             "title": "Silent Hill 2 – “She died ’cause she was sick…”"
